@@ -1,0 +1,66 @@
+<app-toolbar (visibleSidebar)="toggleSidebar()"></app-toolbar>
+<app-navbar></app-navbar>
+
+<router-outlet></router-outlet>
+
+<p-sidebar styleClass="currency-sidebar" [(visible)]="visibleSidebar" position="right" [baseZIndex]="10000">
+  <h3>Dollar</h3>
+  <div class="currency-input">
+    <img src="../../assets/currencies/dollar.svg" alt="" />
+    <p-inputNumber
+      inputId="locale-user"
+      [minFractionDigits]="4"
+      placeholder="Dollar"
+      [(ngModel)]="dollarRate.rate"
+    >
+    </p-inputNumber>
+    <button
+      (click)="updateCurrency(dollarRate)"
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-check"
+      class="p-button-rounded"
+    ></button>
+  </div>
+  <h3>Euro</h3>
+
+  <div class="currency-input">
+    <img src="../../assets/currencies/euro.svg" alt="" />
+    <p-inputNumber
+      inputId="locale-user"
+      [minFractionDigits]="4"
+      placeholder="Euro"
+      [(ngModel)]="euroRate.rate"
+    >
+    </p-inputNumber>
+    <button
+      (click)="updateCurrency(euroRate)"
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-check"
+      class="p-button-rounded"
+    ></button>
+  </div>
+  <h3>Pound</h3>
+
+  <div class="currency-input">
+    <img src="../../assets/currencies/pound-sterling.svg" alt="" />
+    <p-inputNumber
+      inputId="locale-user"
+      [minFractionDigits]="4"
+      placeholder="Pound"
+      [(ngModel)]="poundRate.rate"
+    >
+    </p-inputNumber>
+    <button
+      (click)="updateCurrency(poundRate)"
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-check"
+      class="p-button-rounded"
+    ></button>
+  </div>
+</p-sidebar>

@@ -1,0 +1,213 @@
+<div class="container flex-col" *ngIf="!isLoading" [@fadeInOut]>
+  <div class="small-cards-container">
+    <div class="small-card">
+      <span class="card-title">{{ "Total Ships" | translate }}</span>
+
+      <div class="card-content">
+        {{
+          this.dataService.displayFormattedNumber(
+            dashboardData?.totalShips,
+            false
+          )
+        }}
+      </div>
+      <img src="../../assets/dashboard/green-line.svg" alt="" />
+    </div>
+
+    <div class="small-card">
+      <span class="card-title">{{ "Total Captains" | translate }}</span>
+
+      <div class="card-content">
+        {{
+          this.dataService.displayFormattedNumber(
+            dashboardData?.totalCaptains,
+            false
+          )
+        }}
+      </div>
+      <img src="../../assets/dashboard/blue-line.svg" alt="" />
+    </div>
+
+    <div class="small-card">
+      <span class="card-title">{{ "Total Agencies" | translate }}</span>
+
+      <div class="card-content">
+        {{
+          this.dataService.displayFormattedNumber(
+            dashboardData?.totalAgencies,
+            false
+          )
+        }}
+      </div>
+      <img src="../../assets/dashboard/green-line.svg" alt="" />
+    </div>
+
+    <div class="small-card">
+      <span class="card-title">{{ "Products" | translate }}</span>
+
+      <div class="card-content">
+        {{
+          this.dataService.displayFormattedNumber(
+            dashboardData?.products,
+            false
+          )
+        }}
+      </div>
+      <img src="../../assets/dashboard/blue-line.svg" alt="" />
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <div class="pie-chart-container">
+      <div class="card">
+        <div class="title">
+          {{ "Total Ships" | translate }}:
+          {{
+            this.dataService.displayFormattedNumber(
+              dashboardData?.totalShips,
+              false
+            )
+          }}
+        </div>
+        <p-chart
+          type="doughnut"
+          [data]="data"
+          [options]="chartOptions"
+        ></p-chart>
+      </div>
+    </div>
+    <div class="pie-chart-container">
+      <div class="card">
+        <div class="title">
+          {{ "In Port Ships" | translate }}:
+          {{
+            this.dataService.displayFormattedNumber(
+              dashboardData?.inPortShips,
+              false
+            )
+          }}
+        </div>
+        <p-chart
+          type="doughnut"
+          [data]="data2"
+          [options]="chartOptions"
+        ></p-chart>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column">
+      <div class="payment-card">
+        <div class="header">
+          <p>{{ "Details" | translate }}</p>
+        </div>
+        <div style="padding: 16px">
+          <div class="detail-item">
+            <h2>{{ "Dollar Rate" | translate }}</h2>
+            <p style="margin-left: auto">{{ dashboardData?.currencyRate }}</p>
+          </div>
+
+          <div class="detail-item">
+            <h2>{{ "Open Ship Invoices" | translate }}</h2>
+            <p style="margin-left: auto">
+              {{ dashboardData?.openShipInvoices }}
+            </p>
+          </div>
+
+          <div class="detail-item">
+            <h2>{{ "Open Crane Invoices" | translate }}</h2>
+            <p style="margin-left: auto">
+              {{ dashboardData?.openCraneInvoices }}
+            </p>
+          </div>
+
+          <div class="detail-item">
+            <h2>{{ "Local Ships" | translate }}</h2>
+            <p style="margin-left: auto">{{ dashboardData?.localShips }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-card">
+        <div class="header">
+          <p>{{ "Invoices" | translate }}</p>
+        </div>
+        <div style="padding: 16px">
+          <p-timeline [value]="invoices">
+            <ng-template pTemplate="marker" let-event>
+              <span
+                class="custom-marker p-shadow-2"
+                [style.backgroundColor]="event.color"
+              >
+                <i [ngClass]="event.icon"></i>
+              </span>
+            </ng-template>
+
+            <ng-template pTemplate="content" let-event>
+              <div class="invoice-list">
+                <span>{{ event.status }}</span>
+                <p>${{ event.amount }}</p>
+              </div>
+            </ng-template>
+          </p-timeline>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-card" *ngIf="expiredInsurances">
+      <div class="title">{{ "Expired Insurances" | translate }}</div>
+      <div style="padding-top: 16px">
+        <p-accordion>
+          <p-accordionTab
+            *ngFor="let item of expiredInsurances"
+            [header]="item.agencyName"
+          >
+            <div style="display: flex; flex-direction: column">
+              <li>
+                <b>{{ "Status" | translate }}: </b>
+                <span style="margin: 0; color: #db4627">{{ item.status }}</span>
+              </li>
+              <li>
+                <b>{{ "Expiry Date" | translate }}:</b> {{ item.expiryDate }}
+                {{ item.expiryTime }}
+              </li>
+            </div>
+          </p-accordionTab>
+        </p-accordion>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-loading *ngIf="isLoading" [@fadeInOut]></app-loading>
+<app-update-currency
+  [display]="displayCurrencyDialog"
+  #currecyDialog
+></app-update-currency>
+
+<div (click)="displayDevelopers = true" class="developers">
+  <i class="fas fa-question-circle"></i>
+</div>
+
+<p-dialog
+  header=""
+  [(visible)]="displayDevelopers"
+  [style]="{ width: 'auto', padding: '0px' }"
+>
+  <div class="dev-title">
+    <img src="../../assets/cloudsoft-logo.png" height="55px" alt="" />
+  </div>
+  <span class="title-text"> Cloudsoft Front-End Developers </span>
+
+  <div style="margin-top: 22px">
+    <div class="dev-item">Amro Mobayed</div>
+    <div class="dev-item">Sami Habbaba</div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="displayDevelopers = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

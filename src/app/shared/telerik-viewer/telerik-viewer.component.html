@@ -1,0 +1,25 @@
+
+
+<div class="reportContainer" *ngIf="this.load">
+  <tr-viewer
+    #viewer1
+    [containerStyle]="viewerContainerStyle"
+    [reportServer]="{
+      url: 'https://report.lios3.limanlar.gov.ct.tr',
+      username: 'administrator',
+      password: 'Disc123!'
+    }"
+    [reportSource]="{
+      report: this.reportForm,
+      parameters: this.param
+    }"
+    [viewMode]="'PRINT_PREVIEW'"
+    [pageMode]="'SINGLE_PAGE'"
+    [scaleMode]="'SPECIFIC'"
+    [scale]="1.0"
+    [ready]="ready"
+    [viewerToolTipOpening]="viewerToolTipOpening"
+    [enableAccessibility]="false"
+  >
+  </tr-viewer>
+</div>
