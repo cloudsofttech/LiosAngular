@@ -28,7 +28,7 @@ export class TelerikViewerComponent implements OnInit {
   token;
   reportForm = '';
   fullUrl = '';
-  baseUrl = 'https://report.cloudpg.xyz/api/v1/report/';
+  baseUrl = 'https://api.lios3.limanlar.gov.ct.tr/api/v1/report/';
   ngOnInit(): void {
     if (typeof this.var1 === 'string') {
       if (this.var1?.includes('---')) {
@@ -98,7 +98,9 @@ export class TelerikViewerComponent implements OnInit {
       this.fullUrl = this.baseUrl + this.var1 + this.var2;
       this.param.Url = this.fullUrl;
     } else if (this.var2[0] === 'm' && this.var2[1] === 's') {
-      this.reportForm = `LiosRegistry/${this.var2}`;
+      this.reportForm = `LiosRegistery/${this.var2}`;
+      // this.fullUrl = this.baseUrl + this.var1 + this.var2;
+      // this.param.Url = this.fullUrl;
     }
 
     this.param;
