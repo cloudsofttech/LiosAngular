@@ -98,9 +98,7 @@ export class TelerikViewerComponent implements OnInit {
       this.fullUrl = this.baseUrl + this.var1 + this.var2;
       this.param.Url = this.fullUrl;
     } else if (this.var2[0] === 'm' && this.var2[1] === 's') {
-      this.reportForm = `LiosRegistery/${this.var2}`;
-      // this.fullUrl = this.baseUrl + this.var1 + this.var2;
-      // this.param.Url = this.fullUrl;
+      this.reportForm = `LiosRegistry/${this.var2}`;
     }
 
     this.param;
