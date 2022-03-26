@@ -126,6 +126,7 @@ export class ManualPaymentComponent implements OnInit {
   }
 
   getData() {
+    
     let bank = '';
     if (this.selectedDropdownOption === 'All') {
       bank = '';
@@ -145,11 +146,12 @@ export class ManualPaymentComponent implements OnInit {
           : '',
 
         bank,
-        this.agencyQuery?.name ? this.agencyQuery.name : '',
+        this.agencyQuery? this.agencyQuery.name ? this.agencyQuery.name : '': '',
         this.searchQuery
       )
       .subscribe(
         (response) => {
+          
           this.tableData = response.manualPaymentList;
           // console.log(this.tableData);
           this.numberOfData = response.pagingInfo.totalCount;
@@ -171,13 +173,14 @@ export class ManualPaymentComponent implements OnInit {
   }
 
   search(event?) {
+    
     if (event) {
       if (event.keyCode === 13) {
         this.paginator.changePageToFirst(event);
         this.getData();
       }
     } else {
-      this.paginator.changePageToFirst(event);
+      // this.paginator.changePageToFirst(event);
       this.getData();
     }
   }
@@ -241,8 +244,29 @@ export class ManualPaymentComponent implements OnInit {
   telerik
   showTelerikReport(  var1 = '', var2 = '', isAlternative = false) {
 
+    
+    let bank = '';
+    if (this.selectedDropdownOption === 'All') {
+      bank = '';
+    } else {
+      bank = this.selectedDropdownOption;
+    }
+
+   let startDate = this.dateRanges[0]
+          ? this.dataService.convertDateTimeToIso(this.dateRanges[0]).split('T')[0]
+          : '';
+
+  let endDate = this.dateRanges[1]
+          ? this.dataService.convertDateTimeToIso(this.dateRanges[1]).split('T')[0]
+          : '';
+
+   let Agency = this.agencyQuery? this.agencyQuery.name ? this.agencyQuery.name : '': '';
+  let SearchQuery= this.searchQuery;
+
+        let query = `?StartDate=${startDate}&EndDate=${endDate}&Bank=${bank}&Agency=${Agency}&SearchQuery=${SearchQuery}`
+
     this.reportVar1 = var1;
-    this.reportVar2 = var2;
+    this.reportVar2 = query;
 
     if (isAlternative) {
       this.reportIsAlternative = 'true';
