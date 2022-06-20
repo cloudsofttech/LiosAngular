@@ -1556,10 +1556,11 @@ export class DataService {
     endDate,
     Bank,
     Agency,
-    SearchQuery
+    SearchQuery,
+    port,
   ) {
     return this.http.get<any>(
-      `${environment.apiUrl}payment/manual?PageNumber=${pageNumber}&PageSize=${pageSize}&StartDate=${startDate}&EndDate=${endDate}&Bank=${Bank}&Agency=${Agency}&SearchQuery=${SearchQuery}`,
+      `${environment.apiUrl}payment/manual?PageNumber=${pageNumber}&PageSize=${pageSize}&StartDate=${startDate}&EndDate=${endDate}&Bank=${Bank}&Agency=${Agency}&SearchQuery=${SearchQuery}&Port=${port}`,
       {
         headers: this.httpOptions.headers,
       }

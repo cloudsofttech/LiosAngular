@@ -78,6 +78,13 @@
           [(ngModel)]="selectedDropdownOption"
         >
         </p-dropdown>
+        <p-dropdown
+          (onChange)="dropdownChange()"
+          class="table-button mr"
+          [options]="portList"
+          [(ngModel)]="selectedPortListOption"
+        >
+        </p-dropdown>
 
         <p-button
           [label]="translate.instant('Add Payment')"
