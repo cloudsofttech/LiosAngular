@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { TelerikReportViewerComponent } from '@progress/telerik-angular-report-viewer';
 import { StringResources } from './stringResources';
+import {environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-telerik-viewer',
@@ -28,7 +29,7 @@ export class TelerikViewerComponent implements OnInit {
   token;
   reportForm = '';
   fullUrl = '';
-  baseUrl = 'https://api.cloudpg.xyz/api/v1/report/';
+  baseUrl = environment.reportUrl;
   ngOnInit(): void {
     if (typeof this.var1 === 'string') {
       if (this.var1?.includes('---')) {
