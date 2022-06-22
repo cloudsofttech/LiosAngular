@@ -100,9 +100,15 @@
                     column.value !== 'inquiry' &&
                     column.value !== 'amount' &&
                     column.value !== 'paidAmount' &&
-                    column.value !== 'remainingAmount'
+                    column.value !== 'remainingAmount' &&
+                    column.value !== 'totalInterest'
                   "
                 >
+                  {{ item[column.value] }}
+                </span>
+
+
+                <span class="td-text" *ngIf="column.value === 'totalInterest'">
                   {{ item[column.value] }}
                 </span>
 
@@ -113,9 +119,11 @@
                 <span
                   class="td-text"
                   *ngIf="
+                     column.value !== 'totalInterest' &&
                     column.value === 'amount' ||
                     column.value === 'paidAmount' ||
                     column.value === 'remainingAmount'
+
                   "
                 >
                   $

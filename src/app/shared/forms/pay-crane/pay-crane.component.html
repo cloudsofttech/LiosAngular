@@ -1,6 +1,8 @@
 <div style="padding-top: 16px" *ngIf="selectedInvoices">
   <div class="total-amount">
     {{ "Total Amount" | translate }}: $ {{ returnTotalAmount() }}
+    &nbsp;&nbsp;&nbsp;
+    {{ "Total Interest" | translate }}: {{ returnTotalInterest() }}
   </div>
   <p-listbox
     [options]="invoices"
@@ -64,4 +66,3 @@
   >
   </app-telerik-viewer>
 </p-dialog>
-

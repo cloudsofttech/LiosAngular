@@ -1,15 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { MessageService } from 'primeng/api';
-import { Dialog } from 'primeng/dialog';
-import { Subscription } from 'rxjs';
-import { DataService } from 'src/app/services/data/data.service';
-import { FormService } from 'src/app/services/form-service/form.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup,} from '@angular/forms';
+import {MessageService} from 'primeng/api';
+import {Dialog} from 'primeng/dialog';
+import {Subscription} from 'rxjs';
+import {DataService} from 'src/app/services/data/data.service';
+import {FormService} from 'src/app/services/form-service/form.service';
 
 @Component({
   selector: 'app-pay-crane',
@@ -76,11 +71,16 @@ export class PayCraneComponent implements OnInit {
   }
 
   returnTotalAmount() {
-    const total = Object.values(this.selectedInvoices).reduce(
-      (t, { amount }) => t + amount,
+    return Object.values(this.selectedInvoices).reduce(
+      (t, {amount}) => t + amount,
       0
     );
-    return total;
+  }
+  returnTotalInterest() {
+    return Object.values(this.selectedInvoices).reduce(
+      (t, {interest}) => t + interest,
+      0
+    );
   }
 
   getInvoice() {

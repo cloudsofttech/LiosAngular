@@ -1,9 +1,10 @@
 <p-tabView *ngIf="crane?.inquiry">
   <p-tabPanel
+    class="font-400"
     *ngFor="let inq of crane.inquiry; let i = index"
     header="{{ 'Group' | translate }} {{ inq.group }} - [{{ inq.id }}]  (${{
       inq.amount
-    }})"
+    }}) {{ displayInterest(inq?.interest) }}"
   >
     <div *ngIf="inq">
       <p-table

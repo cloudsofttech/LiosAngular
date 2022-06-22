@@ -41,6 +41,7 @@ export class PendingCraneComponent implements OnInit {
     { value: 'amount', name: 'Amount' },
     { value: 'paidAmount', name: 'Paid' },
     { value: 'remainingAmount', name: 'Remaining' },
+    { value: 'totalInterest', name: 'Interest' },
     { value: 'inquiry', name: 'Total Inquery' },
   ];
 
@@ -160,8 +161,14 @@ export class PendingCraneComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          this.tableData = response.craneInvoiceList;
-          // console.log(this.tableData);
+          this.tableData = response.craneInvoiceList.length > 0 ? response.craneInvoiceList.map((item) => {
+
+            item.totalInterest = item.inquiry.reduce(
+              (t, {interest}) => t + interest,
+              0
+            );
+            return item}) : [];
+          console.log(this.tableData);
           this.numberOfData = response.pagingInfo.totalCount;
           this.isLoading = false;
         },

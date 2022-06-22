@@ -26,7 +26,9 @@ export class MainDialogComponent implements OnInit {
 
   constructor(private formService: FormService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.formName)
+  }
 
   ngOnDestroy() {}
 

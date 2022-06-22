@@ -154,6 +154,16 @@ export class CraneDetailsComponent implements OnInit {
     }
   }
 
+  displayInterest(interest){
+    return interest && interest > 0 ? ` [${interest}]` : ''
+  }
+
+  displayHeaderData(inquiry){
+    /*return {{ 'Group' | translate }} {{ inq.group }} - [{{ inq.id }}]  (${{
+      inq.amount
+    }})*/
+  }
+
   ////// field Conditions
 
   quantityFieldCondition(field) {
