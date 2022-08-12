@@ -2,15 +2,18 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const apiUrl =  'https://api.cloudpg.xyz/api/v1/'; //
+const apiUrlTwo =  'https://api.lios3.xyz/api/v1/';
+
+
 export const environment = {
   production: false,
   isMockEnabled: false, // You have to switch this, when your real back-end is done
   authTokenKey: 'authce9d77b308c149d5992a80073637e4d5',
-  // apiUrl: 'https://api.lios3.xyz/api/v1/',
-  // apiUrl: 'https://api.cloudpg.xyz/api/v1/',
   apiUrl: 'https://api.lios3.limanlar.gov.ct.tr/api/v1/',
   reportUrl: 'https://report.lios3.limanlar.gov.ct.tr/'
-  // reportUrl: //'https://api.cloudpg.xyz/api/v1/report/';
+
+
 };
 
 /*

@@ -29,7 +29,7 @@ export class TelerikViewerComponent implements OnInit {
   token;
   reportForm = '';
   fullUrl = '';
-  baseUrl = environment.reportUrl;
+  baseUrl = environment.apiUrl + 'report/';
   ngOnInit(): void {
     if (typeof this.var1 === 'string') {
       if (this.var1?.includes('---')) {
@@ -89,7 +89,7 @@ export class TelerikViewerComponent implements OnInit {
     } else if (this.var1 === 'payment/manual') {
       this.reportForm = 'Lios/PaymentPre';
       this.fullUrl =
-        'https://api.cloudpg.xyz/api/v1/' +
+        `${environment.apiUrl}` +
         this.var1 +
         '/' +
         this.var2;

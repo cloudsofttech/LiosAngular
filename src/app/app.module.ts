@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard'
 @NgModule({
   declarations: [AppComponent],
   imports: [
