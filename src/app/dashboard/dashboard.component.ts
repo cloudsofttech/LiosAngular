@@ -24,7 +24,12 @@ export class DashboardComponent implements OnInit {
   displayDevelopers: boolean = false;
 
   expiredInsurances: any[];
-
+  constructor(
+    public dataService: DataService,
+    private translate: TranslateService,
+    private messageService: MessageService
+  ) {}
+  
   invoices = [
     {
       status: this.translate.instant('Invoices Amount'),
@@ -46,11 +51,7 @@ export class DashboardComponent implements OnInit {
     },
   ];
 
-  constructor(
-    public dataService: DataService,
-    private translate: TranslateService,
-    private messageService: MessageService
-  ) {}
+ 
 
   ngOnInit() {
     this.isLoading = true;

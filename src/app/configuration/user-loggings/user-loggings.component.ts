@@ -34,13 +34,13 @@ export class UserLoggingsComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'level', name: 'Level' },
-    { value: 'logged', name: 'Time' },
-    { value: 'message', name: 'Message' },
-    { value: 'type', name: 'Type' },
-    { value: 'user', name: 'User' },
-    { value: 'ip', name: 'IP' },
-    { value: 'userAgent', name: 'User Agent' },
+    { value: 'level', name: this.translate.instant('Level') },
+    { value: 'logged', name: this.translate.instant('Time') },
+    { value: 'message', name: this.translate.instant('Message') },
+    { value: 'type', name: this.translate.instant('Type') },
+    { value: 'user', name: this.translate.instant('User') },
+    { value: 'ip', name: this.translate.instant('IP') },
+    { value: 'userAgent', name: this.translate.instant('User Agent') },
   ];
 
   dropdownOptions = [

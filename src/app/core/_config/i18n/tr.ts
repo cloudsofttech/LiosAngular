@@ -595,6 +595,8 @@ export const locale = {
     'Over Charge':'Resmi Tatil Ücreti',
     'Extra Charge':'Romörkör ücreti',
     'configuration':'Yapılandırma',
+    'Configuration':'Yapılandırma',
+
 
     'Famagusta':'Gazimağusa',
     'kyrenia':'Girne',

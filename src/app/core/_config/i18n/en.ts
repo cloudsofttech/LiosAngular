@@ -618,6 +618,7 @@ export const locale = {
     'Over Charge': 'Holiday Charge',
     'Extra Charge': 'Tug Charge',
     configuration: 'Configuration',
+    Configuration: 'Configuration',
 
     Famagusta: 'Famagusta',
     kyrenia: 'kyrenia',

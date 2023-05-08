@@ -616,6 +616,8 @@ export const locale = {
     'Over Charge': 'Over Charge',
     'Extra Charge': 'Extra Charge',
     configuration: 'Configuration',
+    Configuration:'Configuration',
+
 
     Famagusta: 'Famagusta',
     kyrenia: 'kyrenia',
@@ -841,6 +843,28 @@ export const locale = {
     code9195: 'Special Crane',
     code9138: 'VAT',
     code9148: 'Coastal Saftey Directorate',
+
+    // Added by Fazi
+
+    'Open Ship Invoices': 'Open Ship Invoices',
+    'Dollar Rate': 'Dollar Rate',
+    'Open Crane Invoices': 'Open Crane Invoices',
+    Invoices: 'Invoices',
+    'Invoices Amount': 'Invoices Amount',
+    'Invoice Paid Amount': 'Invoice Paid Amount',
+    'Invoice Due Amount': 'Invoice Due Amount',
+    'Expired Insurances': 'Expired Insurances',
+    'Expiry Date': 'Expiry Date',
+    'Add Trip': 'Add Trip',
+    'Ship Arrival': 'Ship Arrival',
+    'Delete Departure': 'Delete Departure',
+    'Bank Report': 'Bank Report',
+    'Collection Report': 'Collection Report',
+    'Add Payment': 'Add Payment',
+    'Add New Payment': 'Add New Payment',
+    'All Ports': 'All Ports',
+    'Add Port': 'Add Port',
+    'IP Adress': 'IP Adress',
 
     // not my translation
 

@@ -594,6 +594,8 @@ export const locale = {
     'Over Charge':'Kazıklamak',
     'Extra Charge':'Ek ücret',
     'configuration':'Yapılandırma',
+    'Configuration':'Yapılandırma',
+
 
     'Famagusta':'Mağusa',
     'kyrenia':'Girne',
