@@ -36,13 +36,14 @@ export class GroupComponent implements OnInit {
   selectedColumns: any[] = [];
   columns = [
     { value: 'id', name: 'Id' },
-    { value: 'name', name: 'Name' },
-    { value: 'code', name: 'Code' },
-    { value: 'description', name: 'Description' },
-    { value: 'orderNo', name: 'Order No' },
-    { value: 'percentage', name: 'Percentage' },
-    { value: 'isPositive', name: 'Is Positive' },
+    { value: 'name', name: this.translate.instant('Name') },
+    { value: 'code', name: this.translate.instant('Code') },
+    { value: 'description', name: this.translate.instant('Description') },
+    { value: 'orderNo', name: this.translate.instant('Order No') },
+    { value: 'percentage', name: this.translate.instant('Percentage') },
+    { value: 'isPositive', name: this.translate.instant('Is Positive') },
   ];
+  
 
   optionsMenu: MenuItem[] = [
     {

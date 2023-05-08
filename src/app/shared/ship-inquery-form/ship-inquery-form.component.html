@@ -10,7 +10,7 @@
     <p-tabPanel #overtimeTab
       ><ng-template pTemplate="header">
         <i class="pi pi-calendar-plus"></i>
-        <span class="ml-2">Overtime</span>
+        <span class="ml-2">{{ "Overtime" | translate }}</span>
       </ng-template>
 
       <div
@@ -88,13 +88,13 @@
       >
         <ng-template pTemplate="header">
           <tr>
-            <th>Service Name</th>
-            <th>Sequence Number</th>
-            <th>Start Time</th>
-            <th>End Time</th>
-            <th>Operator</th>
-            <th>Charge</th>
-            <th>Options</th>
+            <th>{{ "Service Name" | translate }}</th>
+            <th>{{ "Sequence Number" | translate }}</th>
+            <th>{{ "Start Time" | translate }}</th>
+            <th>{{ "End Time" | translate }}</th>
+            <th>{{ "Operator" | translate }}</th>
+            <th>{{ "Charge" | translate }}</th>
+            <th>{{ "Options" | translate }}</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
@@ -103,8 +103,8 @@
             <td>
               {{ product.sequenceNumber }}
             </td>
-            <td>{{ product.start | date: "short" }}</td>
-            <td>{{ product.end | date: "short" }}</td>
+            <td>{{ product.start | date : "short" }}</td>
+            <td>{{ product.end | date : "short" }}</td>
             <td>{{ product.operator }}</td>
             <td>{{ product.charge }}</td>
             <td>
@@ -124,7 +124,7 @@
     <p-tabPanel #boatTab
       ><ng-template pTemplate="header">
         <i class="pi pi-slack"></i>
-        <span class="ml-2">Boat</span>
+        <span class="ml-2">{{ "Boat" | translate }}</span>
       </ng-template>
       <div [formGroup]="boatForm" class="form-container" *ngIf="boatForm">
         <div class="input-container">
@@ -228,13 +228,13 @@
       >
         <ng-template pTemplate="header">
           <tr>
-            <th>Service Name</th>
-            <th>Sequence Number</th>
-            <th>Start Time</th>
-            <th>End Time</th>
-            <th>Ships</th>
-            <th>Charge</th>
-            <th>Options</th>
+            <th>{{ "Service Name" | translate }}</th>
+            <th>{{ "Sequence Number" | translate }}</th>
+            <th>{{ "Start Time" | translate }}</th>
+            <th>{{ "End Time" | translate }}</th>
+            <th>{{ "Ships" | translate }}</th>
+            <th>{{ "Charge" | translate }}</th>
+            <th>{{ "Options" | translate }}</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
@@ -243,8 +243,8 @@
             <td>
               {{ product.sequenceNumber }}
             </td>
-            <td>{{ product.start | date: "short" }}</td>
-            <td>{{ product.end | date: "short" }}</td>
+            <td>{{ product.start | date : "short" }}</td>
+            <td>{{ product.end | date : "short" }}</td>
             <td>{{ product.numberOfShips }}</td>
             <td>{{ product.charge }}</td>
             <td>

@@ -93,13 +93,14 @@
   <p-table *ngIf="form" [value]="movements" responsiveLayout="scroll">
     <ng-template pTemplate="header">
       <tr>
-        <th>Accommodation</th>
-        <th>Pilotage</th>
-        <th>Type</th>
-        <th>Date</th>
-        <th>Defective</th>
-        <th>Free</th>
-        <th>Options</th>
+        <th>{{"Accommodation"| translate}}</th>
+        <th>{{"Pilotage"| translate}}</th>
+        <th>{{"Type"| translate}}</th>
+        <th>{{"Date"| translate}}</th>
+        <th>{{"Defective"|translate}}</th>
+        <th>{{"Free"|translate}}</th>
+        <th>{{"Options"|translate}}</th>
+        
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">

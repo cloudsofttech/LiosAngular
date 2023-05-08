@@ -73,28 +73,29 @@ export class ShipDetailsComponent implements OnInit {
   shipDashboard: any;
 
   selectedColumns: any[] = [];
-  columns = [
-    { value: 'source', name: 'Source' },
-    { value: 'port', name: 'Port' },
-    { value: 'destination', name: 'Destination' },
-    { value: 'accommodation', name: 'Accommodation' },
-    { value: 'sequenceNumber', name: 'Sequence Number' },
-    { value: 'arrivalDate', name: 'Arrival Date' },
-    { value: 'departureDate', name: 'Departure Date' },
-    { value: 'inPort', name: 'In Port' },
-  ];
+ columns = [
+    { value: 'source', name: this.translate.instant('Source') },
+    { value: 'port', name: this.translate.instant('Port') },
+    { value: 'destination', name: this.translate.instant('Destination') },
+    { value: 'accommodation', name: this.translate.instant('Accommodation') },
+    { value: 'sequenceNumber', name: this.translate.instant('Sequence Number') },
+    { value: 'arrivalDate', name: this.translate.instant('Arrival Date') },
+    { value: 'departureDate', name: this.translate.instant('Departure Date') },
+    { value: 'inPort', name: this.translate.instant('In Port') },
+];
 
   selectedColumns2: any[] = [];
-  columns2 = [
-    { value: 'id', name: 'Id' },
-    { value: 'tripId', name: 'Trip Id' },
-    { value: 'shipName', name: 'Ship Name' },
-    { value: 'amount', name: 'Amount' },
-    { value: 'type', name: 'Type' },
-    { value: 'refrence', name: 'Refrence' },
-    { value: 'rate', name: 'Rate' },
-    { value: 'date', name: 'Date' },
-  ];
+columns2 = [
+  { value: 'id', name: this.translate.instant('ID') },
+  { value: 'tripId', name: this.translate.instant('Trip ID') },
+  { value: 'shipName', name: this.translate.instant('Ship Name') },
+  { value: 'amount', name: this.translate.instant('Amount') },
+  { value: 'type', name: this.translate.instant('Type') },
+  { value: 'refrence', name: this.translate.instant('Refrence') },
+  { value: 'rate', name: this.translate.instant('Rate') },
+  { value: 'date', name: this.translate.instant('Date') },
+];
+
 
   dateRanges: any = [new Date(2021, 0, 1), new Date()];
 
@@ -292,16 +293,16 @@ export class ShipDetailsComponent implements OnInit {
   }
 
   toolbarItems: any[] = [
-    { label: 'Dashboard', isActive: true, locked: false },
-    { label: 'Ship Information', isActive: false, locked: false },
-    { label: 'Extra Information', isActive: false, locked: false },
-    { label: 'Construction', isActive: false, locked: false },
-    { label: 'Size', isActive: false, locked: false },
-    { label: 'Engine', isActive: false, locked: false },
-    { label: 'Mortage', isActive: false, locked: false },
-    { label: 'Owner', isActive: false, locked: false },
-    { label: 'Trips', isActive: false, locked: false },
-    { label: 'Payments', isActive: false, locked: false },
+    { label: this.translate.instant('Dashboard'), isActive: true, locked: false },
+    { label: this.translate.instant('Ship Information'), isActive: false, locked: false },
+    { label: this.translate.instant('Extra Information'), isActive: false, locked: false },
+    { label: this.translate.instant('Construction'), isActive: false, locked: false },
+    { label: this.translate.instant('Size'), isActive: false, locked: false },
+    { label: this.translate.instant('Engine'), isActive: false, locked: false },
+    { label: this.translate.instant('Mortage'), isActive: false, locked: false },
+    { label: this.translate.instant('Owner'), isActive: false, locked: false },
+    { label: this.translate.instant('Trips'), isActive: false, locked: false },
+    { label: this.translate.instant('Payments'), isActive: false, locked: false },
   ];
 
   changeActiveTab(item: any) {

@@ -44,12 +44,12 @@
     </div>
     <div class="input-container" *ngIf="this.form.controls.amount.value">
       <h1 style="margin: 0; font-size: 18px" *ngIf="!form.controls.isPaid.value">
-        Are you sure you want to pay the amount:
+        {{"Are you sure you want to pay the amount"|translate}}:
         {{ form.controls.amount.value }} TL?
       </h1>
       
       <h1 style="margin: 0; font-size: 18px; color: red;" *ngIf="form.controls.isPaid.value">
-        This invoice is paid already with the amount:
+        {{"This invoice is paid already with the amount" | translate}}:
         {{ form.controls.amount.value }} TL
       </h1>
 

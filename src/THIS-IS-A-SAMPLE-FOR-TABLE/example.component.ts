@@ -29,13 +29,13 @@ export class ExampleComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'name', name: 'Name' },
-    { value: 'agencyType', name: 'Agency Type' },
-    { value: 'telephone', name: 'Telephone' },
-    { value: 'country', name: 'Country' },
-    { value: 'webLink', name: 'Web Link' },
-    { value: 'email', name: 'Email' },
-    { value: 'isInsured', name: 'Is Insured' },
+    { value: 'name', name: this.translate.instant('Name') },
+    { value: 'agencyType', name: this.translate.instant('Agency Type') },
+    { value: 'telephone', name: this.translate.instant('Telephone') },
+    { value: 'country', name: this.translate.instant('Country') },
+    { value: 'webLink', name: this.translate.instant('Web Link') },
+    { value: 'email', name: this.translate.instant('Email') },
+    { value: 'isInsured', name: this.translate.instant('Is Insured') },
   ];
 
   dropdownOptions = [

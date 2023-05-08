@@ -35,13 +35,13 @@ export class CategoryComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'id', name: 'Id' },
-    { value: 'name', name: 'Name' },
-    { value: 'description', name: 'Description' },
-    { value: 'orderNo', name: 'Order No' },
-    { value: 'groupId', name: 'Group Id' },
-    { value: 'groupName', name: 'Group Name' },
-  ];
+    { value: 'id', name: this.translate.instant('Id') },
+    { value: 'name', name: this.translate.instant('Name') },
+    { value: 'description', name: this.translate.instant('Description') },
+    { value: 'orderNo', name: this.translate.instant('Order No') },
+    { value: 'groupId', name: this.translate.instant('Group Id') },
+    { value: 'groupName', name: this.translate.instant('Group Name') }
+];
 
   dateRanges: any;
 

@@ -12,11 +12,10 @@ import { fadeInOut } from 'src/app/animations/animation';
   selector: 'app-history-crane',
   templateUrl: './history-crane.component.html',
   styleUrls: ['./history-crane.component.scss'],
-  animations: [fadeInOut()]
+  animations: [fadeInOut()],
 })
 export class HistoryCraneComponent implements OnInit {
   isLoading: boolean = false;
-
 
   // Form Variables
   formName: string = '';
@@ -36,12 +35,12 @@ export class HistoryCraneComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'date', name: 'Date' },
-    { value: 'agencyName', name: 'Agency' },
-    { value: 'craneAgencyName', name: 'Crane Agency' },
-    { value: 'amount', name: 'Amount' },
-    { value: 'inquiry', name: 'Total Inquery' },
-    { value: 'paidDate', name: 'Paid Date' },
+    { value: 'date', name: this.translate.instant('Date') },
+    { value: 'agencyName', name: this.translate.instant('Agency') },
+    { value: 'craneAgencyName', name: this.translate.instant('Crane Agency') },
+    { value: 'amount', name: this.translate.instant('Amount') },
+    { value: 'inquiry', name: this.translate.instant('Total Inquery') },
+    { value: 'paidDate', name: this.translate.instant('Paid Date') },
   ];
 
   dateRanges: any = [new Date(2021, 0, 1), new Date()];
@@ -61,7 +60,6 @@ export class HistoryCraneComponent implements OnInit {
           },
         },
 
-
         {
           label: this.translate.instant('Payments'),
           icon: 'pi pi-wallet',
@@ -73,7 +71,6 @@ export class HistoryCraneComponent implements OnInit {
             );
           },
         },
-
 
         // {
         //   label: this.translate.instant('Report'),
@@ -95,7 +92,7 @@ export class HistoryCraneComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.loadSubscriptions();
-    this.selectedColumns= [...this.columns];
+    this.selectedColumns = [...this.columns];
     this.getData();
   }
 
@@ -117,10 +114,14 @@ export class HistoryCraneComponent implements OnInit {
     this.dataService
       .getAllCranes(
         this.dateRanges[0]
-          ? this.dataService.convertDateTimeToIso(this.dateRanges[0]).split('T')[0]
+          ? this.dataService
+              .convertDateTimeToIso(this.dateRanges[0])
+              .split('T')[0]
           : '',
         this.dateRanges[1]
-          ? this.dataService.convertDateTimeToIso(this.dateRanges[1]).split('T')[0]
+          ? this.dataService
+              .convertDateTimeToIso(this.dateRanges[1])
+              .split('T')[0]
           : '',
         this.pageNumber,
         this.pageSize,
@@ -186,5 +187,4 @@ export class HistoryCraneComponent implements OnInit {
   destroySubscriptions() {
     this.refreshSubscriber$.unsubscribe();
   }
-
 }

@@ -1,19 +1,19 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MenuItem, MessageService} from 'primeng/api';
-import {TranslateService} from '@ngx-translate/core';
-import {DataService} from 'src/app/services/data/data.service';
-import {FormService} from 'src/app/services/form-service/form.service';
-import {DeleteService} from 'src/app/services/delete-service/delete.service';
-import {Subscription} from 'rxjs';
-import {Paginator} from 'primeng/paginator';
-import {AuthService} from '../services/auth/auth.service';
-import {fadeInOut} from '../animations/animation';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MenuItem, MessageService } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
+import { DataService } from 'src/app/services/data/data.service';
+import { FormService } from 'src/app/services/form-service/form.service';
+import { DeleteService } from 'src/app/services/delete-service/delete.service';
+import { Subscription } from 'rxjs';
+import { Paginator } from 'primeng/paginator';
+import { AuthService } from '../services/auth/auth.service';
+import { fadeInOut } from '../animations/animation';
 
 @Component({
   selector: 'app-manual-payment',
   templateUrl: './manual-payment.component.html',
   styleUrls: ['./manual-payment.component.scss'],
-  animations: [fadeInOut()]
+  animations: [fadeInOut()],
 })
 export class ManualPaymentComponent implements OnInit {
   isLoading: boolean = false;
@@ -34,15 +34,15 @@ export class ManualPaymentComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    {value: 'id', name: 'Makbuz No'},
-    {value: 'kasaNo', name: 'Kasa No'},
-    {value: 'date', name: 'Date'},
-    {value: 'agency', name: 'Agency'},
-    {value: 'amount', name: 'Total'},
-    {value: 'bank', name: 'Bank'},
-    {value: 'chequeNo', name: 'Cheque No'},
-    {value: 'description', name: 'Description'},
-    {value: 'port', name: 'Port'},
+    { value: 'id', name: this.translate.instant('Makbuz No') },
+    { value: 'kasaNo', name: this.translate.instant('Kasa No') },
+    { value: 'date', name: this.translate.instant('Date') },
+    { value: 'agency', name: this.translate.instant('Agency') },
+    { value: 'amount', name: this.translate.instant('Total') },
+    { value: 'bank', name: this.translate.instant('Bank') },
+    { value: 'chequeNo', name: this.translate.instant('Cheque No') },
+    { value: 'description', name: this.translate.instant('Description') },
+    { value: 'port', name: this.translate.instant('Port') },
   ];
 
   selectedDropdownOption: any = 'All';
@@ -88,17 +88,17 @@ export class ManualPaymentComponent implements OnInit {
           label: this.translate.instant('Print'),
           icon: 'pi pi-file-pdf',
           command: () => {
-            this.showTelerikReport('payment/manual', this.objToSend.id)
+            this.showTelerikReport('payment/manual', this.objToSend.id);
           },
         },
       ],
     },
   ];
-  reportVar1
-  reportVar2
-  reportIsAlternative
-  displayTelerikDialog
-  telerik
+  reportVar1;
+  reportVar2;
+  reportIsAlternative;
+  displayTelerikDialog;
+  telerik;
 
   constructor(
     public translate: TranslateService,
@@ -107,18 +107,17 @@ export class ManualPaymentComponent implements OnInit {
     private deleteService: DeleteService,
     private authService: AuthService,
     private messageService: MessageService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.isLoading = true;
-    if (this.authService.currentUser.role!=='Admin') {
+    if (this.authService.currentUser.role !== 'Admin') {
       this.optionsMenu[0].items?.splice(1, 1);
     }
     this.loadSubscriptions();
     this.selectedColumns = [...this.columns];
     this.banksList = this.dataService.banksList;
-    console.log(this.banksList)
+    console.log(this.banksList);
 
     this.getAgencies();
     this.getData();
@@ -137,34 +136,43 @@ export class ManualPaymentComponent implements OnInit {
   }
 
   getData() {
-
     let bank = '';
-    if (this.selectedDropdownOption==='All') {
+    if (this.selectedDropdownOption === 'All') {
       bank = '';
     } else {
       bank = this.selectedDropdownOption;
     }
-    let port = this.selectedPortListOption==='All Ports' ? '':this.selectedPortListOption;
+    let port =
+      this.selectedPortListOption === 'All Ports'
+        ? ''
+        : this.selectedPortListOption;
 
     this.dataService
       .getAllManualPayments(
         this.pageNumber,
         this.pageSize,
         this.dateRanges[0]
-          ? this.dataService.convertDateTimeToIso(this.dateRanges[0]).split('T')[0]
-          :'',
+          ? this.dataService
+              .convertDateTimeToIso(this.dateRanges[0])
+              .split('T')[0]
+          : '',
         this.dateRanges[1]
-          ? this.dataService.convertDateTimeToIso(this.dateRanges[1]).split('T')[0]
-          :'',
+          ? this.dataService
+              .convertDateTimeToIso(this.dateRanges[1])
+              .split('T')[0]
+          : '',
 
         bank,
-        this.agencyQuery ? this.agencyQuery.name ? this.agencyQuery.name:'':'',
+        this.agencyQuery
+          ? this.agencyQuery.name
+            ? this.agencyQuery.name
+            : ''
+          : '',
         this.searchQuery,
         port
       )
       .subscribe(
         (response) => {
-
           this.tableData = response.manualPaymentList;
           // console.log(this.tableData);
           this.numberOfData = response.pagingInfo.totalCount;
@@ -186,9 +194,8 @@ export class ManualPaymentComponent implements OnInit {
   }
 
   search(event?) {
-
     if (event) {
-      if (event.keyCode===13) {
+      if (event.keyCode === 13) {
         this.paginator.changePageToFirst(event);
         this.getData();
       }
@@ -214,7 +221,7 @@ export class ManualPaymentComponent implements OnInit {
     this.refreshSubscriber$ = this.formService
       .getRefreshSubject()
       .subscribe((value) => {
-        if (value==='refresh') {
+        if (value === 'refresh') {
           this.getData();
         }
       });
@@ -226,7 +233,8 @@ export class ManualPaymentComponent implements OnInit {
 
   // AutoComplete
   getAgencies() {
-    this.dataService.getAllAgencies('', '', 1, 10000).subscribe((resp) => {
+    this.dataService.getAllAgencies('', '', 1, 10000).subscribe(
+      (resp) => {
         this.agencies = resp.agencyList;
       },
       () => {
@@ -235,7 +243,8 @@ export class ManualPaymentComponent implements OnInit {
           summary: 'Error',
           detail: 'Bir hata oluştu.',
         });
-      });
+      }
+    );
   }
 
   filterAgencies(event) {
@@ -243,7 +252,7 @@ export class ManualPaymentComponent implements OnInit {
     let query = event.query;
     for (let i = 0; i < this.agencies.length; i++) {
       let item = this.agencies[i];
-      if (item.name.toLowerCase().indexOf(query.toLowerCase())==0) {
+      if (item.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
         filtered.push(item);
       }
     }
@@ -251,28 +260,33 @@ export class ManualPaymentComponent implements OnInit {
   }
 
   showTelerikReport(var1 = '', var2 = '', isAlternative = false) {
-
-
     let bank = '';
-    if (this.selectedDropdownOption==='All') {
+    if (this.selectedDropdownOption === 'All') {
       bank = '';
     } else {
       bank = this.selectedDropdownOption;
     }
-    let port = this.selectedPortListOption==='All Ports' ? '':this.selectedPortListOption;
+    let port =
+      this.selectedPortListOption === 'All Ports'
+        ? ''
+        : this.selectedPortListOption;
 
     let startDate = this.dateRanges[0]
       ? this.dataService.convertDateTimeToIso(this.dateRanges[0]).split('T')[0]
-      :'';
+      : '';
 
     let endDate = this.dateRanges[1]
       ? this.dataService.convertDateTimeToIso(this.dateRanges[1]).split('T')[0]
-      :'';
+      : '';
 
-    let Agency = this.agencyQuery ? this.agencyQuery.name ? this.agencyQuery.name:'':'';
+    let Agency = this.agencyQuery
+      ? this.agencyQuery.name
+        ? this.agencyQuery.name
+        : ''
+      : '';
     let SearchQuery = this.searchQuery;
 
-    let query = `?StartDate=${startDate}&EndDate=${endDate}&Bank=${bank}&Agency=${Agency}&SearchQuery=${SearchQuery}&Port=${port}`
+    let query = `?StartDate=${startDate}&EndDate=${endDate}&Bank=${bank}&Agency=${Agency}&SearchQuery=${SearchQuery}&Port=${port}`;
 
     this.reportVar1 = var1;
     this.reportVar2 = query;
@@ -286,5 +300,4 @@ export class ManualPaymentComponent implements OnInit {
     this.displayTelerikDialog = true;
     this.telerik = true;
   }
-
 }

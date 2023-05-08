@@ -43,14 +43,14 @@ export class ShipRegistryComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'id', name: 'Id' },
-    { value: 'name', name: 'Name' },
-    { value: 'agencyName', name: 'Agency Name' },
-    { value: 'country', name: 'Country' },
-    { value: 'grt', name: 'GRT' },
-    { value: 'nrt', name: 'NRT' },
-    { value: 'dwt', name: 'DWT' },
-    { value: 'leangth', name: 'Length' },
+    { value: 'id', name: this.translate.instant('Id') },
+    { value: 'name', name: this.translate.instant('Name') },
+    { value: 'agencyName', name: this.translate.instant('Agency Name') },
+    { value: 'country', name: this.translate.instant('Country') },
+    { value: 'grt', name: this.translate.instant('GRT') },
+    { value: 'nrt', name: this.translate.instant('NRT') },
+    { value: 'dwt', name: this.translate.instant('DWT') },
+    { value: 'leangth', name: this.translate.instant('Length') },
   ];
 
   optionsMenu: MenuItem[] = [

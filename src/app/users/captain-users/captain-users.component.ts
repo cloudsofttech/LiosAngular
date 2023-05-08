@@ -13,10 +13,10 @@ import { fadeInOut } from 'src/app/animations/animation';
   selector: 'app-captain-users',
   templateUrl: './captain-users.component.html',
   styleUrls: ['./captain-users.component.scss'],
-  animations: [fadeInOut()]
+  animations: [fadeInOut()],
 })
 export class CaptainUsersComponent implements OnInit {
-  isLoading:boolean = false;
+  isLoading: boolean = false;
 
   // Form Variables
   formName: string = '';
@@ -34,14 +34,17 @@ export class CaptainUsersComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'firstName', name: 'First Name' },
-    { value: 'lastName', name: 'Last Name' },
-    { value: 'registrationNumber', name: 'Registration Number' },
-    { value: 'telephone', name: 'Telephone' },
-    { value: 'country', name: 'Country' },
-    { value: 'email', name: 'Email' },
-    { value: 'isLocal', name: 'Is Local' },
-    { value: 'isGuidline', name: 'Is Guidline' },
+    { value: 'firstName', name: this.translate.instant('First Name') },
+    { value: 'lastName', name: this.translate.instant('Last Name') },
+    {
+      value: 'registrationNumber',
+      name: this.translate.instant('Registration Number'),
+    },
+    { value: 'telephone', name: this.translate.instant('Telephone') },
+    { value: 'country', name: this.translate.instant('Country') },
+    { value: 'email', name: this.translate.instant('Email') },
+    { value: 'isLocal', name: this.translate.instant('Is Local') },
+    { value: 'isGuidline', name: this.translate.instant('Is Guidline') },
   ];
 
   dateRanges: any;
@@ -81,7 +84,7 @@ export class CaptainUsersComponent implements OnInit {
     private formService: FormService,
     private deleteService: DeleteService,
     private authService: AuthService,
-    private messageService:MessageService
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -107,7 +110,7 @@ export class CaptainUsersComponent implements OnInit {
         (response) => {
           this.tableData = response.captainList;
           this.numberOfData = response.pagingInfo.totalCount;
-          this.isLoading = false
+          this.isLoading = false;
         },
         () => {
           this.messageService.add({

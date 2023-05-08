@@ -853,7 +853,7 @@ export const locale = {
     'Local Type': 'Local Type',
     Local: 'Local',
     'Add Brand': 'Add Brand',
-    "Brand" : 'Brand',
+    Brand: 'Brand',
     'Add Trip': 'Add Trip',
     'Ship Arrival': 'Ship Arrival',
     'Delete Departure': 'Delete Departure',
@@ -863,8 +863,17 @@ export const locale = {
     'Add New Payment': 'Add New Payment',
     'Add Port': 'Add Port',
     'IP Adress': 'IP Adress',
+    'Crane Agency': 'Vinç Acentesi',
+    'Total Inquery': 'Total Inquery',
+    remaining: 'remaining',
+    'This invoice is paid already with the amount':
+      'This invoice is paid already with the amount',
+    'Are you sure you want to pay the amount?':
+      'Are you sure you want to pay the amount?',
 
-
+      Operator: 'Operator',
+      Defective: 'Defective',
+      Accommodation: 'Accommodation',
     // not my translation
 
     TRANSLATOR: {

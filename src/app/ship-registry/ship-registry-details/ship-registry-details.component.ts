@@ -19,7 +19,7 @@ import { fadeInOut } from 'src/app/animations/animation';
   selector: 'app-ship-registry-details',
   templateUrl: './ship-registry-details.component.html',
   styleUrls: ['./ship-registry-details.component.scss'],
-  animations: [fadeInOut()]
+  animations: [fadeInOut()],
 })
 export class ShipRegistryDetailsComponent implements OnInit {
   isLoading: boolean = false;
@@ -71,26 +71,29 @@ export class ShipRegistryDetailsComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'source', name: 'Source' },
-    { value: 'port', name: 'Port' },
-    { value: 'destination', name: 'Destination' },
-    { value: 'accommodation', name: 'Accommodation' },
-    { value: 'sequenceNumber', name: 'Sequence Number' },
-    { value: 'arrivalDate', name: 'Arrival Date' },
-    { value: 'departureDate', name: 'Departure Date' },
-    { value: 'inPort', name: 'In Port' },
+    { value: 'source', name: this.translate.instant('Source') },
+    { value: 'port', name: this.translate.instant('Port') },
+    { value: 'destination', name: this.translate.instant('Destination') },
+    { value: 'accommodation', name: this.translate.instant('Accommodation') },
+    {
+      value: 'sequenceNumber',
+      name: this.translate.instant('Sequence Number'),
+    },
+    { value: 'arrivalDate', name: this.translate.instant('Arrival Date') },
+    { value: 'departureDate', name: this.translate.instant('Departure Date') },
+    { value: 'inPort', name: this.translate.instant('In Port') },
   ];
 
   selectedColumns2: any[] = [];
   columns2 = [
-    { value: 'id', name: 'Id' },
-    { value: 'tripId', name: 'Trip Id' },
-    { value: 'shipName', name: 'Ship Name' },
-    { value: 'amount', name: 'Amount' },
-    { value: 'type', name: 'Type' },
-    { value: 'refrence', name: 'Refrence' },
-    { value: 'rate', name: 'Rate' },
-    { value: 'date', name: 'Date' },
+    { value: 'id', name: this.translate.instant('Id') },
+    { value: 'tripId', name: this.translate.instant('Trip Id') },
+    { value: 'shipName', name: this.translate.instant('Ship Name') },
+    { value: 'amount', name: this.translate.instant('Amount') },
+    { value: 'type', name: this.translate.instant('Type') },
+    { value: 'refrence', name: this.translate.instant('Refrence') },
+    { value: 'rate', name: this.translate.instant('Rate') },
+    { value: 'date', name: this.translate.instant('Date') },
   ];
 
   dateRanges: any = [new Date(2021, 0, 1), new Date()];
@@ -126,7 +129,7 @@ export class ShipRegistryDetailsComponent implements OnInit {
     this.dataService.getShipDetail(this.shipId).subscribe(
       (resp) => {
         this.shipDetails = resp;
-        console.log(this.shipDetails)
+        console.log(this.shipDetails);
         if (
           this.shipDetails.flag === 'KKTC' ||
           this.shipDetails.flag === 'Northern Cyprus' ||
@@ -243,10 +246,14 @@ export class ShipRegistryDetailsComponent implements OnInit {
     this.dataService
       .getAllTrips(
         this.dateRanges[0]
-          ? this.dataService.convertDateTimeToIso(this.dateRanges[0]).split('T')[0]
+          ? this.dataService
+              .convertDateTimeToIso(this.dateRanges[0])
+              .split('T')[0]
           : '',
         this.dateRanges[1]
-          ? this.dataService.convertDateTimeToIso(this.dateRanges[1]).split('T')[0]
+          ? this.dataService
+              .convertDateTimeToIso(this.dateRanges[1])
+              .split('T')[0]
           : '',
         this.pageNumber,
         this.pageSize,
@@ -279,16 +286,16 @@ export class ShipRegistryDetailsComponent implements OnInit {
   }
 
   toolbarItems: any[] = [
-    { label: 'Dashboard', isActive: true, locked: false },
-    { label: 'Ship Information', isActive: false, locked: false },
-    { label: 'Extra Information', isActive: false, locked: false },
-    { label: 'Construction', isActive: false, locked: false },
-    { label: 'Size', isActive: false, locked: false },
-    { label: 'Engine', isActive: false, locked: false },
-    { label: 'Mortage', isActive: false, locked: false },
-    { label: 'Owner', isActive: false, locked: false },
-    { label: 'Trips', isActive: false, locked: false },
-    { label: 'Payments', isActive: false, locked: false },
+    { label: this.translate.instant('Dashboard'), isActive: true, locked: false },
+    { label: this.translate.instant('Ship Information'), isActive: false, locked: false },
+    { label: this.translate.instant('Extra Information'), isActive: false, locked: false },
+    { label: this.translate.instant('Construction'), isActive: false, locked: false },
+    { label: this.translate.instant('Size'), isActive: false, locked: false },
+    { label: this.translate.instant('Engine'), isActive: false, locked: false },
+    { label: this.translate.instant('Mortage'), isActive: false, locked: false },
+    { label: this.translate.instant('Owner'), isActive: false, locked: false },
+    { label: this.translate.instant('Trips'), isActive: false, locked: false },
+    { label: this.translate.instant('Payments'), isActive: false, locked: false },
   ];
 
   changeActiveTab(item: any) {
@@ -1067,7 +1074,6 @@ export class ShipRegistryDetailsComponent implements OnInit {
     this.addNewOwner();
   }
 
-
   deleteShip() {
     const obj = { id: this.shipId, isDeleted: true };
     this.dataService.updateShip(obj).subscribe(
@@ -1089,24 +1095,15 @@ export class ShipRegistryDetailsComponent implements OnInit {
     );
   }
 
-
-
-
-
-
-
-
   // reports work
   @ViewChild('report_menu') report_menu: Menu;
 
-
-  reportVar1
-  reportVar2
-  reportIsAlternative
-  displayTelerikDialog
-  telerik
-  showTelerikReport( var2 = '', var1 = '', isAlternative = false) {
-
+  reportVar1;
+  reportVar2;
+  reportIsAlternative;
+  displayTelerikDialog;
+  telerik;
+  showTelerikReport(var2 = '', var1 = '', isAlternative = false) {
     this.reportVar1 = var1;
     this.reportVar2 = var2;
 
@@ -1119,7 +1116,6 @@ export class ShipRegistryDetailsComponent implements OnInit {
     this.displayTelerikDialog = true;
     this.telerik = true;
   }
-
 
   objToSend: any = null;
 
@@ -1159,35 +1155,28 @@ export class ShipRegistryDetailsComponent implements OnInit {
         this.showTelerikReport(this.objToSend.id, 'boat/invoice');
       },
     },
-  ]
-
+  ];
 
   reportOptionsMenu: MenuItem[] = [
     {
-      items: [
-
-      ],
+      items: [],
     },
   ];
 
   toggleMenuReports(item, event) {
-
     this.objToSend = item;
 
     this.reportOptionsMenu[0].items = [];
-    if(item.shipInvoice)
-    {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[0])
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[1])
+    if (item.shipInvoice) {
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[0]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[1]);
     }
-    if(item.craneInvoice)
-    {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[2])
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[3])
+    if (item.craneInvoice) {
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[2]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[3]);
     }
-    if(item.boatInvoice)
-    {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[4])
+    if (item.boatInvoice) {
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[4]);
     }
 
     this.report_menu.toggle(event);

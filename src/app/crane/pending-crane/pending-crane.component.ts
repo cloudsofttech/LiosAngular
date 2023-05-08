@@ -13,7 +13,7 @@ import { fadeInOut } from 'src/app/animations/animation';
   selector: 'app-pending-crane',
   templateUrl: './pending-crane.component.html',
   styleUrls: ['./pending-crane.component.scss'],
-  animations: [fadeInOut()]
+  animations: [fadeInOut()],
 })
 export class PendingCraneComponent implements OnInit {
   isLoading: boolean = false;
@@ -35,14 +35,14 @@ export class PendingCraneComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'date', name: 'Date' },
-    { value: 'agencyName', name: 'Agency' },
-    { value: 'craneAgencyName', name: 'Crane Agency' },
-    { value: 'amount', name: 'Amount' },
-    { value: 'paidAmount', name: 'Paid' },
-    { value: 'remainingAmount', name: 'Remaining' },
-    { value: 'totalInterest', name: 'Interest' },
-    { value: 'inquiry', name: 'Total Inquery' },
+    { value: 'date', name: this.translate.instant('date') },
+    { value: 'agencyName', name: this.translate.instant('agency') },
+    { value: 'craneAgencyName', name: this.translate.instant('craneAgency') },
+    { value: 'amount', name: this.translate.instant('amount') },
+    { value: 'paidAmount', name: this.translate.instant('paid') },
+    { value: 'remainingAmount', name: this.translate.instant('remaining') },
+    { value: 'totalInterest', name: this.translate.instant('interest') },
+    { value: 'inquiry', name: this.translate.instant('totalInquiry') },
   ];
 
   dropdownOptions = [
@@ -145,14 +145,17 @@ export class PendingCraneComponent implements OnInit {
   }
 
   getData() {
-
     this.dataService
       .getAllCranes(
         this.dateRanges[0]
-          ? this.dataService.convertDateTimeToIso(this.dateRanges[0]).split('T')[0]
+          ? this.dataService
+              .convertDateTimeToIso(this.dateRanges[0])
+              .split('T')[0]
           : '',
         this.dateRanges[1]
-          ? this.dataService.convertDateTimeToIso(this.dateRanges[1]).split('T')[0]
+          ? this.dataService
+              .convertDateTimeToIso(this.dateRanges[1])
+              .split('T')[0]
           : '',
         this.pageNumber,
         this.pageSize,
@@ -161,13 +164,16 @@ export class PendingCraneComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          this.tableData = response.craneInvoiceList.length > 0 ? response.craneInvoiceList.map((item) => {
-
-            item.totalInterest = item.inquiry.reduce(
-              (t, {interest}) => t + interest,
-              0
-            );
-            return item}) : [];
+          this.tableData =
+            response.craneInvoiceList.length > 0
+              ? response.craneInvoiceList.map((item) => {
+                  item.totalInterest = item.inquiry.reduce(
+                    (t, { interest }) => t + interest,
+                    0
+                  );
+                  return item;
+                })
+              : [];
           console.log(this.tableData);
           this.numberOfData = response.pagingInfo.totalCount;
           this.isLoading = false;

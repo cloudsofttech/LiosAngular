@@ -79,13 +79,13 @@ export class AddShipComponent implements OnInit {
 
   toolbarItems: any[] = [
     // { label: 'Dashboard', isActive: true, locked: true },
-    { label: 'Ship Information', isActive: true, locked: false },
-    { label: 'Extra Information', isActive: false, locked: true },
-    { label: 'Construction', isActive: false, locked: true },
-    { label: 'Size', isActive: false, locked: true },
-    { label: 'Engine', isActive: false, locked: true },
-    { label: 'Mortage', isActive: false, locked: true },
-    { label: 'Owner', isActive: false, locked: true },
+    { label: this.translate.instant('Ship Information'), isActive: true, locked: false },
+    { label: this.translate.instant('Extra Information'), isActive: false, locked: true },
+    { label: this.translate.instant('Construction'), isActive: false, locked: true },
+    { label: this.translate.instant('Size'), isActive: false, locked: true },
+    { label: this.translate.instant('Engine'), isActive: false, locked: true },
+    { label: this.translate.instant('Mortage'), isActive: false, locked: true },
+    { label: this.translate.instant('Owner'), isActive: false, locked: true },
     // { label: 'Trips', isActive: false , locked: true},
     // { label: 'Payments', isActive: false , locked: true},
   ];

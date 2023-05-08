@@ -9,12 +9,11 @@ import { Paginator } from 'primeng/paginator';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { fadeInOut } from 'src/app/animations/animation';
 
-
 @Component({
   selector: 'app-brand',
   templateUrl: './brand.component.html',
   styleUrls: ['./brand.component.scss'],
-  animations: [fadeInOut()]
+  animations: [fadeInOut()],
 })
 export class BrandComponent implements OnInit {
   isLoading: boolean = false;
@@ -35,8 +34,8 @@ export class BrandComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'id', name: 'Id' },
-    { value: 'name', name: 'Name' },
+    { value: 'id', name: this.translate.instant('Id') },
+    { value: 'name', name: this.translate.instant('Name') },
   ];
 
   optionsMenu: MenuItem[] = [
@@ -150,5 +149,4 @@ export class BrandComponent implements OnInit {
   destroySubscriptions() {
     this.refreshSubscriber$.unsubscribe();
   }
-
 }

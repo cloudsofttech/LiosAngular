@@ -1,4 +1,3 @@
-
 // USA
 export const locale = {
   lang: 'en',
@@ -44,7 +43,7 @@ export const locale = {
     Close: 'Close',
     'Reset Form': 'Reset Form',
     'Submit Changes': 'Submit Changes',
-    'Submit': 'Submit',
+    Submit: 'Submit',
     "Change user's password": "Change user's password",
     'New Password': 'New Password',
     'Confirm Password': 'Confirm Password',
@@ -616,8 +615,7 @@ export const locale = {
     'Over Charge': 'Over Charge',
     'Extra Charge': 'Extra Charge',
     configuration: 'Configuration',
-    Configuration:'Configuration',
-
+    Configuration: 'Configuration',
 
     Famagusta: 'Famagusta',
     kyrenia: 'kyrenia',
@@ -865,6 +863,15 @@ export const locale = {
     'All Ports': 'All Ports',
     'Add Port': 'Add Port',
     'IP Adress': 'IP Adress',
+    'Crane Agency': 'Crane Agency',
+    'Total Inquery': 'Total Inquery',
+    remaining: 'remaining',
+    'This invoice is paid already with the amount':
+      'This invoice is paid already with the amount',
+    'Are you sure you want to pay the amount?':
+      'Are you sure you want to pay the amount?',
+      Operator: 'Operator',
+      Defective: 'Defective',
 
     // not my translation
 

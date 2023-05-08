@@ -58,16 +58,16 @@ export class PendingTripsComponent implements OnInit {
   selectedColumns: any[] = [];
 
   columns = [
-    { value: 'shipName', name: 'Ship Name' },
-    { value: 'source', name: 'Source' },
-    { value: 'port', name: 'Port' },
-    { value: 'destination', name: 'Destination' },
-    { value: 'accommodation', name: 'Accommodation' },
-    { value: 'sequenceNumber', name: 'Sequence Number' },
-    { value: 'arrivalDate', name: 'Arrival Date' },
-    { value: 'departureDate', name: 'Departure Date' },
-    { value: 'inPort', name: 'In Port' },
-    { value: 'isPaid', name: 'Is Paid' },
+    { value: 'shipName', name: this.translate.instant('Ship Name') },
+    { value: 'source', name: this.translate.instant('Source') },
+    { value: 'port', name: this.translate.instant('Port') },
+    { value: 'destination', name: this.translate.instant('Destination') },
+    { value: 'accommodation', name: this.translate.instant('Accommodation') },
+    { value: 'sequenceNumber', name: this.translate.instant('Sequence Number') },
+    { value: 'arrivalDate', name: this.translate.instant('Arrival Date') },
+    { value: 'departureDate', name: this.translate.instant('Departure Date') },
+    { value: 'inPort', name: this.translate.instant('In Port') },
+    { value: 'isPaid', name: this.translate.instant('Is Paid') },
   ];
 
   menuToShow: MenuItem[] | any = [

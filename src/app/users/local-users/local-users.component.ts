@@ -33,18 +33,19 @@ export class LocalUsersComponent implements OnInit {
 
   selectedColumns: any[] = [];
   columns = [
-    { value: 'userName', name: 'Username' },
-    { value: 'name', name: 'Name' },
-    { value: 'systemId', name: 'System Id' },
-    { value: 'email', name: 'Email' },
-    { value: 'department', name: 'Department' },
-    { value: 'country', name: 'Country' },
-    { value: 'bloodType', name: 'Blood Type' },
-    { value: 'staffType', name: 'Staff Type' },
-    { value: 'isTransfer', name: 'Is Transfer' },
-    { value: 'transferTime', name: 'Transfer Time' },
-    { value: 'isLogin', name: 'Is Login' },
+    { value: 'userName', name: this.translate.instant('Username') },
+    { value: 'name', name: this.translate.instant('Name') },
+    { value: 'systemId', name: this.translate.instant('System Id') },
+    { value: 'email', name: this.translate.instant('Email') },
+    { value: 'department', name: this.translate.instant('Department') },
+    { value: 'country', name: this.translate.instant('Country') },
+    { value: 'bloodType', name: this.translate.instant('Blood Type') },
+    { value: 'staffType', name: this.translate.instant('Staff Type') },
+    { value: 'isTransfer', name: this.translate.instant('Is Transfer') },
+    { value: 'transferTime', name: this.translate.instant('Transfer Time') },
+    { value: 'isLogin', name: this.translate.instant('Is Login') },
   ];
+  
 
   dateRanges: any;
 
