@@ -855,6 +855,36 @@ export const locale = {
     code9138: 'VAT',
     code9148: 'Coastal Saftey Directorate',
 
+
+    'Open Ship Invoices': 'Open Ship Invoices',
+    'Dollar Rate': 'Dollar Rate',
+    'Open Crane Invoices': 'Open Crane Invoices',
+    Invoices: 'Invoices',
+    'Invoices Amount': 'Invoices Amount',
+    'Invoice Paid Amount': 'Invoice Paid Amount',
+    'Invoice Due Amount': 'Invoice Due Amount',
+    'Expired Insurances': 'Expired Insurances',
+    'Expiry Date': 'Expiry Date',
+    'Add Trip': 'Add Trip',
+    'Ship Arrival': 'Ship Arrival',
+    'Delete Departure': 'Delete Departure',
+    'Bank Report': 'Bank Report',
+    'Collection Report': 'Collection Report',
+    'Add Payment': 'Add Payment',
+    'Add New Payment': 'Add New Payment',
+    'All Ports': 'All Ports',
+    'Add Port': 'Add Port',
+    'IP Adress': 'IP Adress',
+    'Crane Agency': 'Crane Agency',
+    'Total Inquery': 'Total Inquery',
+    remaining: 'remaining',
+    'This invoice is paid already with the amount':
+      'This invoice is paid already with the amount',
+    'Are you sure you want to pay the amount?':
+      'Are you sure you want to pay the amount?',
+      Operator: 'Operator',
+      Defective: 'Defective',
+
     // not my translation
 
     TRANSLATOR: {

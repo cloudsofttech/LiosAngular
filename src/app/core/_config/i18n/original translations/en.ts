@@ -872,6 +872,7 @@ export const locale = {
       'Are you sure you want to pay the amount?',
       Operator: 'Operator',
       Defective: 'Defective',
+      "Manual Payment" : "Manuel Ödeme",
 
     // not my translation
 

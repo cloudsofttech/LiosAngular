@@ -900,6 +900,34 @@ export const locale = {
     'Zambia':'Zambiya',
     'Zimbabwe':'Zimbabve',
 
+      // Added by Fazi
+      'Open Ship Invoices': 'Açık Gemi Faturaları',
+      'Add Local': 'Yerel Ekleme',
+      Local: 'Yerel',
+      'Add Brand': 'Marka Ekle',
+      Brand: 'Marka',
+      'Add Trip': 'Seyahat Ekle',
+      'Ship Arrival': 'Gemi Varışı',
+      'Delete Departure': 'Kalkış Sil',
+      'Bank Report': 'Banka Raporu',
+      'Collection Report': 'Koleksiyon Raporu',
+      'Add Payment': 'Ödeme Ekle',
+      'Add New Payment': 'Yeni Ödeme Ekle',
+      'Add Port': 'Lıman Ekle',
+      'IP Adress': 'IP adresi',
+      'Crane Agency': 'Vinç Acentesi',
+      'Total Inquery': 'Toplam Sorgulama',
+      remaining: 'geriye kalan',
+      Loggings: 'Girişler',
+      'This invoice is paid already with the amount':
+        'Bu fatura zaten tutarla birlikte ödenmiştir.',
+      'Are you sure you want to pay the amount?':
+        'Tutarı ödemek istediğinizden emin misiniz?',
+  
+        Operator: 'Operatör',
+        Defective: 'Arızalı',
+        Accommodation: 'Konaklama',
+        "Manual Payment" : "Manuel Ödeme",
 
     // not my translation
 
