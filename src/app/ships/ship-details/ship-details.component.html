@@ -324,7 +324,6 @@
           type="button"
           label="Save"
           class="p-button-text"
-          [disabled]="extraInformation.invalid"
           (click)="submitExtra()"
         ></button>
       </div>
@@ -577,11 +576,7 @@
 
         <div class="input-container">
           <span class="p-float-label">
-            <input
-              formControlName="registrationNumber"
-              type="number"
-              pInputText
-            />
+            <input formControlName="registrationNumber" type="text" pInputText />
             <label>{{ "Registration Number" | translate }}</label>
           </span>
           <small
@@ -711,7 +706,6 @@
           type="button"
           label="Save"
           class="p-button-text"
-          [disabled]="construction.invalid"
           (click)="submitConstruction()"
         ></button>
       </div>
@@ -837,7 +831,6 @@
           type="button"
           label="Save"
           class="p-button-text"
-          [disabled]="size.invalid"
           (click)="submitSize()"
         ></button>
       </div>
@@ -925,7 +918,6 @@
           type="button"
           label="Save"
           class="p-button-text"
-          [disabled]="engine.invalid"
           (click)="submitEngine()"
         ></button>
       </div>
@@ -1532,10 +1524,10 @@
         <div class="input-container">
           <span class="p-float-label">
             <p-dropdown
-              [options]="currencies"
-              formControlName="currencyId"
-              placeholder="{{ 'Currency' | translate }}"
-              optionLabel="code"
+            [options]="currencies"
+            formControlName="currencyId"
+            optionLabel="code"
+            placeholder=""
             ></p-dropdown>
           </span>
           <small *ngIf="checkValidity('currencyId', owner)" class="p-error">{{

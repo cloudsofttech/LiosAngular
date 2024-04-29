@@ -332,7 +332,6 @@
           type="button"
           label="Save"
           class="p-button-text"
-          [disabled]="extraInformation.invalid"
           (click)="submitExtra()"
         ></button>
       </div>
@@ -587,7 +586,7 @@
           <span class="p-float-label">
             <input
               formControlName="registrationNumber"
-              type="number"
+              type="text"
               pInputText
             />
             <label>{{ "Registration Number" | translate }}</label>
@@ -719,7 +718,6 @@
           type="button"
           label="Save"
           class="p-button-text"
-          [disabled]="construction.invalid"
           (click)="submitConstruction()"
         ></button>
       </div>
@@ -845,7 +843,6 @@
           type="button"
           label="Save"
           class="p-button-text"
-          [disabled]="size.invalid"
           (click)="submitSize()"
         ></button>
       </div>
@@ -933,7 +930,6 @@
           type="button"
           label="Save"
           class="p-button-text"
-          [disabled]="engine.invalid"
           (click)="submitEngine()"
         ></button>
       </div>

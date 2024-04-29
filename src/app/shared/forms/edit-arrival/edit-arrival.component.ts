@@ -271,7 +271,7 @@ export class EditArrivalComponent implements OnInit {
       ]),
       isFree: new FormControl(this.formObj.isFree, []),
       isPilotage: new FormControl(this.formObj.isPilotage, []),
-      isDefective: new FormControl(this.formObj.isDefective, []),
+      defectiveEngine: new FormControl(this.formObj.defectiveEngine, []),
       pilotageId: new FormControl(this.formObj.pilotageId, []),
       normalPassenger: new FormControl(this.formObj.normalPassenger, []),
       transitPassenger: new FormControl(this.formObj.transitPassenger, []),

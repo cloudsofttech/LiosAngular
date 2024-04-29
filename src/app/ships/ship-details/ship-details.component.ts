@@ -156,7 +156,9 @@ columns2 = [
     );
     this.dataService.getShipExtra(this.shipId).subscribe(
       (resp) => {
-        // console.log(resp);
+        if(resp != null)
+          this.extraId = resp.id;
+        
         this.initializeExtraInfoForm(resp);
       },
       () => {
@@ -169,6 +171,10 @@ columns2 = [
     );
     this.dataService.getAllConstructionsForShip(this.shipId).subscribe(
       (resp) => {
+
+        if(resp != null)
+          this.constructionId = resp.id;
+
         this.initializeConstructionForm(resp);
       },
       () => {
@@ -181,6 +187,10 @@ columns2 = [
     );
     this.dataService.getAllSizesForShip(this.shipId).subscribe(
       (resp) => {
+
+        if(resp != null)
+          this.sizeId = resp.id;
+
         this.initializeSizeForm(resp);
       },
       () => {
@@ -193,6 +203,10 @@ columns2 = [
     );
     this.dataService.getAllEnginesForShip(this.shipId).subscribe(
       (resp) => {
+
+        if(resp != null)
+          this.engineId = resp.id;
+
         this.initializeEngineForm(resp);
       },
       () => {
@@ -203,6 +217,7 @@ columns2 = [
         });
       }
     );
+
     this.initializeMortageForm();
     this.initializeOwnerForm();
     this.selectedColumns = [...this.columns];
@@ -359,126 +374,110 @@ columns2 = [
       type: new FormControl(obj?.type, [Validators.required]),
       country: new FormControl(obj?.country, [Validators.required]),
       flag: new FormControl(obj?.flag, [Validators.required]),
-      leangth: new FormControl(obj?.leangth, [Validators.required]),
-      grt: new FormControl(obj?.grt, [Validators.required]),
-      nrt: new FormControl(obj?.nrt, [Validators.required]),
-      dwt: new FormControl(obj?.dwt, [Validators.required]),
+      leangth: new FormControl(obj?.leangth ? obj.leangth : 0, [Validators.required]),
+      grt: new FormControl(obj?.grt ? obj.grt : 0, [Validators.required]),
+      nrt: new FormControl(obj?.nrt ? obj.nrt : 0, [Validators.required]),
+      dwt: new FormControl(obj?.dwt ? obj.dwt : 0, [Validators.required]),
       isLocal: new FormControl(false, [Validators.required]),
     });
   }
 
   initializeExtraInfoForm(obj) {
     this.getCaptains();
-    this.extraInformation = new FormGroup({
+    this.extraInformation = new FormGroup({      
       shipId: new FormControl(null),
-      mdrAdress: new FormControl(obj?.mdrAddress, [Validators.required]),
+      mdrAdress: new FormControl(obj?.mdrAdress),
       captainId: new FormControl(obj?.captainId, [Validators.required]),
-      m3: new FormControl(obj?.m3, [Validators.required]),
-      netM3: new FormControl(obj?.netM3, [Validators.required]),
-      speed: new FormControl(obj?.speed, [Validators.required]),
-      orderNo: new FormControl(obj?.orderNo, [Validators.required]),
+      m3: new FormControl(obj?.m3 ? obj.m3 : 0, [Validators.required]),
+      netM3: new FormControl(obj?.netM3 ? obj.netM3 : 0, [Validators.required]),
+      speed: new FormControl(obj?.speed ? obj.speed : 0, [Validators.required]),
+      orderNo: new FormControl(obj?.orderNo),
       exactRegistrationDate: new FormControl(
         obj?.exactRegistrationDate
           ? new Date(obj.exactRegistrationDate)
           : new Date(),
         [Validators.required]
       ),
-      expertPrice: new FormControl(obj?.expertPrice, [Validators.required]),
-      imoNumber: new FormControl(obj?.imoNumber, [Validators.required]),
-      number: new FormControl(obj?.number, [Validators.required]),
+      expertPrice: new FormControl(obj?.expertPrice ? obj.expertPrice : 0, [Validators.required]),
+      imoNumber: new FormControl(obj?.imoNumber),
+      number: new FormControl(obj?.number),
       sailBoatDescription: new FormControl(obj?.sailBoatDescription, [
         Validators.required,
       ]),
-      builder: new FormControl(obj?.builder, [Validators.required]),
-      builderAddress: new FormControl(obj?.builderAddress, [
-        Validators.required,
-      ]),
-      numberOfSeamen: new FormControl(obj?.numberOfSeamen, [
-        Validators.required,
-      ]),
-      callSign: new FormControl(obj?.callSign, [Validators.required]),
-      engineType: new FormControl(obj?.engineType, [Validators.required]),
-      enginePower: new FormControl(obj?.enginePower, [Validators.required]),
-      sliceCount: new FormControl(obj?.sliceCount, [Validators.required]),
-      brakeHorsePower: new FormControl(obj?.brakeHorsePower, [
-        Validators.required,
-      ]),
-      registrationNumber: new FormControl(obj?.registrationNumber, [
-        Validators.required,
-      ]),
-      registrationPort: new FormControl(obj?.registrationPort, [
-        Validators.required,
-      ]),
-      status: new FormControl(obj?.status, [Validators.required]),
-      code: new FormControl(obj?.code, [Validators.required]),
+      builder: new FormControl(obj?.builder),
+      builderAddress: new FormControl(obj?.builderAddress),
+      numberOfSeamen: new FormControl(obj?.numberOfSeamen ? obj.numberOfSeamen : 0, [Validators.required]),
+      callSign: new FormControl(obj?.callSign),
+      engineType: new FormControl(obj?.engineType),
+      enginePower: new FormControl(obj?.enginePower ? obj.enginePower : 0, [Validators.required]),
+      sliceCount: new FormControl(obj?.sliceCount ? obj.sliceCount : 0, [Validators.required]),
+      brakeHorsePower: new FormControl(obj?.brakeHorsePower ? obj.brakeHorsePower : 0, [Validators.required]),
+      registrationNumber: new FormControl(obj?.registrationNumber),
+      registrationPort: new FormControl(obj?.registrationPort),
+      status: new FormControl(obj?.status),
+      code: new FormControl(obj?.code),
       tempDate: new FormControl(
         obj?.tempDate ? new Date(obj.tempDate) : new Date(),
         [Validators.required]
       ),
-      constructionSite: new FormControl(obj?.constructionSite, [
-        Validators.required,
-      ]),
+      constructionSite: new FormControl(obj?.constructionSite),
       constructionDate: new FormControl(
         obj?.constructionDate ? new Date(obj.constructionDate) : new Date(),
         [Validators.required]
       ),
-      director: new FormControl(obj?.director, [Validators.required]),
-      kw: new FormControl(obj?.kw, [Validators.required]),
+      director: new FormControl(obj?.director),
+      kw: new FormControl(obj?.kw ? obj.kw : 0, [Validators.required]),
     });
   }
 
   initializeConstructionForm(obj) {
     this.construction = new FormGroup({
       shipId: new FormControl(null),
-      numberOfDecks: new FormControl(obj?.numberOfDecks, [Validators.required]),
-      headOfShip: new FormControl(obj?.headOfShip, [Validators.required]),
-      backOfShip: new FormControl(obj?.backOfShip, [Validators.required]),
-      structure: new FormControl(obj?.structure, [Validators.required]),
-      numberOfPole: new FormControl(obj?.numberOfPole, [Validators.required]),
-      hardware: new FormControl(obj?.hardware, [Validators.required]),
-      sectionOfShip: new FormControl(obj?.sectionOfShip, [Validators.required]),
-      frameFormat: new FormControl(obj?.frameFormat, [Validators.required]),
-      description: new FormControl(obj?.description, [Validators.required]),
+      numberOfDecks: new FormControl(obj?.numberOfDecks ? obj.numberOfDecks : 0, [Validators.required]),
+      headOfShip: new FormControl(obj?.headOfShip),
+      backOfShip: new FormControl(obj?.backOfShip),
+      structure: new FormControl(obj?.structure),
+      numberOfPole: new FormControl(obj?.numberOfPole ? obj.numberOfPole : 0, [Validators.required]),
+      hardware: new FormControl(obj?.hardware),
+      sectionOfShip: new FormControl(obj?.sectionOfShip ? obj.sectionOfShip : 0, [Validators.required]),
+      frameFormat: new FormControl(obj?.frameFormat),
+      description: new FormControl(obj?.description),
     });
   }
 
   initializeSizeForm(obj) {
     this.size = new FormGroup({
       shipId: new FormControl(null),
-      frontLength: new FormControl(obj?.frontLength, [Validators.required]),
-      width: new FormControl(obj?.width, [Validators.required]),
-      fullSize: new FormControl(obj?.fullSize, [Validators.required]),
-      depth1: new FormControl(obj?.depth1, [Validators.required]),
-      depth2: new FormControl(obj?.depth2, [Validators.required]),
-      depth3: new FormControl(obj?.depth3, [Validators.required]),
-      depth4: new FormControl(obj?.depth4, [Validators.required]),
+      frontLength: new FormControl(obj?.frontLength ? obj.frontLength : 0, [Validators.required]),
+      width: new FormControl(obj?.width ? obj.width : 0, [Validators.required]),
+      fullSize: new FormControl(obj?.fullSize ? obj.fullSize : 0, [Validators.required]),
+      depth1: new FormControl(obj?.depth1 ? obj.depth1 : 0, [Validators.required]),
+      depth2: new FormControl(obj?.depth2 ? obj.depth2 : 0, [Validators.required]),
+      depth3: new FormControl(obj?.depth3 ? obj.depth3 : 0, [Validators.required]),
+      depth4: new FormControl(obj?.depth4 ? obj.depth4 : 0, [Validators.required]),
     });
   }
 
   initializeEngineForm(obj) {
     this.engine = new FormGroup({
       shipId: new FormControl(null),
-      machineCount: new FormControl(obj?.machineCount, [Validators.required]),
-      cylinderDiameter: new FormControl(obj?.cylinderDiameter, [
+      machineCount: new FormControl(obj?.machineCount ? obj.machineCount : 0, [Validators.required]),
+      cylinderDiameter: new FormControl(obj?.cylinderDiameter ? obj.cylinderDiameter : 0, [
         Validators.required,
       ]),
-      cylinderCount: new FormControl(obj?.cylinderCount, [Validators.required]),
-      timeOfPower_1: new FormControl(obj?.timeOfPower_1, [Validators.required]),
-      timeOfPower_2: new FormControl(obj?.timeOfPower_2, [Validators.required]),
-      estimatedHorsePower: new FormControl(obj?.estimatedHorsePower, [
+      cylinderCount: new FormControl(obj?.cylinderCount ? obj.cylinderCount : 0, [Validators.required]),
+      timeOfPower_1: new FormControl(obj?.timeOfPower_1 ? obj.timeOfPower_1 : 0, [Validators.required]),
+      timeOfPower_2: new FormControl(obj?.timeOfPower_2 ? obj.timeOfPower_2 : 0, [Validators.required]),
+      estimatedHorsePower: new FormControl(obj?.estimatedHorsePower),
+      name: new FormControl(obj?.name),
+      yearMade: new FormControl(obj?.yearMade ? obj.yearMade : 0, [Validators.required]),
+      estimatedSpeed: new FormControl(obj?.estimatedSpeed ? obj.estimatedSpeed : 0, [
         Validators.required,
       ]),
-      name: new FormControl(obj?.name, [Validators.required]),
-      yearMade: new FormControl(obj?.yearMade, [Validators.required]),
-      estimatedSpeed: new FormControl(obj?.estimatedSpeed, [
-        Validators.required,
-      ]),
-      createrName: new FormControl(obj?.createrName, [Validators.required]),
-      createrAddress: new FormControl(obj?.createrAddress, [
-        Validators.required,
-      ]),
-      motorDetail: new FormControl(obj?.motorDetail, [Validators.required]),
-      machineArmsCount: new FormControl(obj?.machineArmsCount, [
+      createrName: new FormControl(obj?.createrName),
+      createrAddress: new FormControl(obj?.createrAddress),
+      motorDetail: new FormControl(obj?.motorDetail),
+      machineArmsCount: new FormControl(obj?.machineArmsCount ? obj.machineArmsCount : 0, [
         Validators.required,
       ]),
     });
@@ -502,6 +501,8 @@ columns2 = [
 
   initializeOwnerForm() {
     this.getAllOwners();
+    this.getCurrencies();
+    this.getAgencies();
     this.owner = new FormGroup({
       shipId: new FormControl(null),
       ownerName: new FormControl(null, [Validators.required]),
@@ -675,8 +676,8 @@ columns2 = [
   }
 
   submitExtra() {
+    let obj = this.extraInformation.getRawValue();
     if (!this.extraId) {
-      let obj = this.extraInformation.getRawValue();
       if (obj.captainId.hasOwnProperty('id')) obj.captainId = obj.captainId.id;
       obj.shipId = this.shipId;
       this.dataService.addNewShipExtra(obj).subscribe(
@@ -707,8 +708,8 @@ columns2 = [
           });
         }
       );
-    } else {
-      let obj = this.extraInformation.getRawValue();
+    } else {      
+      // let obj = this.extraInformation.getRawValue();
       if (obj.captainId.hasOwnProperty('id')) obj.captainId = obj.captainId.id;
       obj.shipId = this.shipId;
       obj.id = this.extraId;
@@ -865,7 +866,7 @@ columns2 = [
         }
       );
     } else {
-      let obj = this.size.getRawValue();
+      let obj = this.engine.getRawValue();
       obj.shipId = this.shipId;
       obj.id = this.engineId;
       this.dataService.updateShipEngine(obj).subscribe(

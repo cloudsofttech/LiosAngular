@@ -106,6 +106,10 @@ export class AddShipComponent implements OnInit {
     this.router.navigate(['/ships']);
   }
 
+  navigatToShipPage() {
+    this.router.navigate(['/ships/'+this.shipId]);
+  }
+
   checkValidity(formControl: string, form: FormGroup) {
     return form.get(formControl)?.touched && form.get(formControl)?.invalid;
   }
@@ -344,6 +348,7 @@ export class AddShipComponent implements OnInit {
           summary: 'Success',
           detail: 'Yeni gemi başarıyla eklendi',
         });
+        this.navigatToShipPage();
       },
       () => {
         this.messageService.add({

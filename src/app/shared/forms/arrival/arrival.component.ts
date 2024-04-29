@@ -68,7 +68,7 @@ export class ArrivalComponent implements OnInit {
           (resp) => {
             this.ports = resp.portList.map((x) => x.name);
             this.ports.forEach((x) => {
-              if (/KKTC/.test(x)) {
+              if (/TRNC/.test(x)) {
                 this.destinationPorts.push(x);
               }
             });
@@ -261,7 +261,7 @@ export class ArrivalComponent implements OnInit {
       sourcePort: new FormControl(null, [Validators.required]),
       isFree: new FormControl(false, []),
       isPilotage: new FormControl(false, []),
-      isDefective: new FormControl(false, []),
+      defectiveEngine: new FormControl(false, []),
       pilotageId: new FormControl(null, []),
       normalPassenger: new FormControl(0, []),
       transitPassenger: new FormControl(0, []),

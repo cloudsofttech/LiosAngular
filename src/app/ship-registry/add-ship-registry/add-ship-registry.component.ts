@@ -303,6 +303,10 @@ export class AddShipRegistryComponent implements OnInit {
     });
   }
 
+  navigatToShipRegistryPage() {
+    this.router.navigate(['/ship-registry/'+ this.shipId]);
+  }
+
   // Filtering autoCompletes
   filterAgencies(event) {
     let filtered: any[] = [];
@@ -343,6 +347,7 @@ export class AddShipRegistryComponent implements OnInit {
           summary: 'Success',
           detail: 'Yeni gemi başarıyla eklendi',
         });
+        this.navigatToShipRegistryPage();
       },
       () => {
         this.messageService.add({
