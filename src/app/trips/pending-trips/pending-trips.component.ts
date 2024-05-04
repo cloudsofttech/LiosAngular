@@ -37,7 +37,7 @@ export class PendingTripsComponent implements OnInit {
   refreshSubscriber$: Subscription;
   laodingSubscriber$: Subscription;
 
-  pageSize = 50;
+  pageSize = 100;
   pageNumber = 1;
   numberOfData: number;
   searchQuery: string = '';

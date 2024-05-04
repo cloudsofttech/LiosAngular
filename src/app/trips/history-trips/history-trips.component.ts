@@ -34,7 +34,7 @@ export class HistoryTripsComponent implements OnInit {
   objToSend: any = null;
   refreshSubscriber$: Subscription;
 
-  pageSize = 50;
+  pageSize = 100;
   pageNumber = 1;
   numberOfData: number;
   searchQuery: string = '';

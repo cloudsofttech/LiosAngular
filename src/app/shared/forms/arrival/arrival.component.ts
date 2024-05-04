@@ -68,7 +68,7 @@ export class ArrivalComponent implements OnInit {
           (resp) => {
             this.ports = resp.portList.map((x) => x.name);
             this.ports.forEach((x) => {
-              if (/TRNC/.test(x)) {
+              if (/TRNC/.test(x) ||  /KKTC/.test(x)) {
                 this.destinationPorts.push(x);
               }
             });
