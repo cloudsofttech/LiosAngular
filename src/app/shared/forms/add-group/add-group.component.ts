@@ -114,8 +114,8 @@ export class AddGroupComponent implements OnInit {
       name: new FormControl(null, [Validators.required]),
       code: new FormControl(null, []),
       description: new FormControl(null, []),
-      orderNo: new FormControl(null, []),
-      percentage: new FormControl(null, []),
+      orderNo: new FormControl('0', []),
+      percentage: new FormControl('0', []),
       isPositive: new FormControl(false, []),
     });
   }

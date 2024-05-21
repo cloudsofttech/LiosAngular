@@ -2,7 +2,7 @@
   <p-tabPanel>
     <ng-template pTemplate="header">
       <i class="pi pi-info-circle"></i>
-      <span class="ml-2">Information</span>
+      <span class="ml-2">{{ "Information" | translate }}</span>
     </ng-template>
     <div [formGroup]="form" class="form-container" *ngIf="form">
       <div class="input-container">
@@ -61,7 +61,13 @@
           <p-dropdown
             [options]="purposesDropdown"
             formControlName="purpose"
-            placeholder=" "
+            placeholder=" ">
+            <ng-template pTemplate="item" let-item>
+              {{item.label | translate}}
+              </ng-template>
+              <ng-template pTemplate="selectedItem" let-item>
+              {{item.label | translate}}
+              </ng-template>
           ></p-dropdown>
           <label>{{ "Purpose" | translate }}</label>
         </span>
@@ -75,8 +81,13 @@
           <p-dropdown
             [options]="movementsTypeDropdown"
             formControlName="type"
-            placeholder=" "
-          ></p-dropdown>
+            placeholder=" ">
+          <ng-template pTemplate="item" let-item>
+            {{item.label | translate}}
+            </ng-template>
+            <ng-template pTemplate="selectedItem" let-item>
+            {{item.label | translate}}
+            </ng-template></p-dropdown>
           <label>{{ "Type" | translate }}</label>
         </span>
         <small *ngIf="checkValidity('type')" class="p-error">{{
@@ -205,7 +216,7 @@
   <p-tabPanel header="Header II">
     <ng-template pTemplate="header">
       <i class="pi pi-shopping-cart"></i>
-      <span class="ml-2">Products</span>
+      <span class="ml-2">{{ "Products" | translate }}</span>
     </ng-template>
     <div class="form-container" *ngIf="form">
       <div class="input-container">

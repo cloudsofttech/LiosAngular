@@ -4,13 +4,17 @@ export const locale = {
     // my translation
 
     // start of Users page
-
+    'Role':'Role',
     'Registration Number':'Kayıt Numarası',
     'Name':'Ad',
+    'Is Insured':'Is InsuredTR',
     'Tax Number':'Vergi Numarası',
     'Explanation':'Açıklama',
     'Foundation Date':'Kuruluş Tarihi',
     'Agency Type':'Acente Türü',
+    'Agency Details': 'Agency Details',
+    'Is Local': 'Is Local',
+    'Is Guidline': 'Is Guidline',
     'Telephone':'Telefon Numarası',
     'Fax 1':'Fax 1',
     'Fax 2':'Fax 2',
@@ -145,6 +149,7 @@ export const locale = {
     'Add Ship':'Gemi Ekle',
     'Vessel Type':'Gemi Tipi',
     'Captain Name':'Kaptan Adı',
+    'Captain Details': 'Captain Details',
     'Agency Name':'Acente Adı',
 
     'Status':'Durumu',

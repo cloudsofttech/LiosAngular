@@ -24,8 +24,14 @@
         <p-dropdown
           [options]="paymentTypes"
           formControlName="type"
-          placeholder=" "
-        ></p-dropdown>
+          placeholder=" ">
+        <ng-template pTemplate="item" let-item>
+          {{item.label | translate}}
+          </ng-template>
+          <ng-template pTemplate="selectedItem" let-item>
+          {{item.label | translate}}
+          </ng-template>        
+      </p-dropdown>
         <label>{{ "Type" | translate }}</label>
       </span>
       <small *ngIf="checkValidity('type', true)" class="p-error">{{

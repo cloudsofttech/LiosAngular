@@ -15,56 +15,104 @@ export class DataService {
   currentUser: any = {};
   backTo = '';
 
-  paymentTypes: any[] = [
-    'Cash',
-    'Credit Card',
-    'Debt Card',
-    ' Bank Transfer',
-    'Online Transaction',
-    'Check',
+  // paymentTypes: any[] = [
+  //   'Cash',
+  //   'Credit Card',
+  //   'Debt Card',
+  //   'Bank Transfer',
+  //   'Online Transaction',
+  //   'Check',
+  // ];
+
+  paymentTypes = [
+    {label: 'Cash', value: 'Cash'},
+    {label: 'Credit Card', value: 'Credit Card'},
+    {label: 'Debt Card', value: 'Debt Card'},
+    {label: 'Bank Transfer', value: 'Bank Transfer'},
+    {label: 'Online Transaction', value: 'Online Transaction'},
+    {label: 'Check', value: 'Check'},
   ];
+
+  // shipTypes = [
+  //   'RESEARCH',
+  //   'SOLDIER',
+  //   'FISHING BOAT',
+  //   'BALLOON',
+  //   'DIVER SHIP',
+  //   'SUBMARINE',
+  //   'PONTOON',
+  //   'BULK VESSEL',
+  //   'ANIMAL SHIP',
+  //   'CONTAINER SHIP',
+  //   'DRY CARGO',
+  //   'SMALL BOATS',
+  //   'RO/RO',
+  //   'TUG',
+  //   'RO/RO MOTOR LOAD',
+  //   'SERVICE ENGINE',
+  //   'TANKER',
+  //   'TRAWL',
+  //   'TOUR SHIP',
+  //   'YACHT',
+  //   'CRUISE SHIP',
+  //   'FLOATING POOL',
+  //   'KIYI EMNİYETİ DENIZ ARACI',
+  //   'SCHOOL SHIP',
+  //   'DRAWER',
+  //   'REED BARGE',
+  //   'Practice',
+  //   'Passanger'
+  // ];
 
   shipTypes = [
-    'RESEARCH',
-    'SOLDIER',
-    'FISHING BOAT',
-    'BALLOON',
-    'DIVER SHIP',
-    'SUBMARINE',
-    'PONTOON',
-    'BULK VESSEL',
-    'ANIMAL SHIP',
-    'CONTAINER SHIP',
-    'DRY CARGO',
-    'SMALL BOATS',
-    'RO/RO',
-    'TUG',
-    'RO/RO MOTOR LOAD',
-    'SERVICE ENGINE',
-    'TANKER',
-    'TRAWL',
-    'TOUR SHIP',
-    'YACHT',
-    'CRUISE SHIP',
-    'FLOATING POOL',
-    'KIYI EMNİYETİ DENIZ ARACI',
-    'SCHOOL SHIP',
-    'DRAWER',
-    'REED BARGE',
-    'Practice',
-    'Passanger'
-  ];
+    {label: 'RESEARCH', value: 'RESEARCH'},
+    {label: 'SOLDIER', value: 'SOLDIER'},
+    {label: 'FISHING BOAT', value: 'FISHING BOAT'},
+    {label: 'BALLOON', value: 'BALLOON'},
+    {label: 'DIVER SHIP', value: 'DIVER SHIP'},
+    {label: 'SUBMARINE', value: 'SUBMARINE'},
+    {label: 'PONTOON', value: 'PONTOON'},
+    {label: 'BULK VESSEL', value: 'BULK VESSEL'},
+    {label: 'ANIMAL SHIP', value: 'ANIMAL SHIP'},
+    {label: 'CONTAINER SHIP', value: 'CONTAINER SHIP'},
+    {label: 'DRY CARGO', value: 'DRY CARGO'},
+    {label: 'SMALL BOATS', value: 'SMALL BOATS'},
+    {label: 'RO/RO', value: 'RO/RO'},
+    {label: 'TUG', value: 'TUG'},
+    {label: 'RO/RO MOTOR LOAD', value: 'RO/RO MOTOR LOAD'},
+    {label: 'SERVICE ENGINE', value: 'SERVICE ENGINE'},
+    {label: 'TANKER', value: 'TANKER'},
+    {label: 'TRAWL', value: 'TRAWL'},
+    {label: 'TOUR SHIP', value: 'TOUR SHIP'},
+    {label: 'YACHT', value: 'YACHT'},
+    {label: 'CRUISE SHIP', value: 'CRUISE SHIP'},
+    {label: 'FLOATING POOL', value: 'FLOATING POOL'},
+    {label: 'KIYI EMNİYETİ DENIZ ARACI', value: 'KIYI EMNİYETİ DENIZ ARACI'},
+    {label: 'SCHOOL SHIP', value: 'SCHOOL SHIP'},
+    {label: 'DRAWER', value: 'DRAWER'},
+    {label: 'REED BARGE', value: 'REED BARGE'},
+    {label: 'Practice', value: 'Practice'},
+    {label: 'Passanger', value: 'Passanger'}
+      ];
 
+  // movementType = [
+  //   'Defective Official Release',
+  //   'Defective Official Entry',
+  //   'Shift to Idle',
+  //   'Official Release',
+  //   'Picture Introduction',
+  //   'Shifting',
+  //   'Practice',
+  // ];
   movementType = [
-    'Defective Official Release',
-    'Defective Official Entry',
-    'Shift to Idle',
-    'Official Release',
-    'Picture Introduction',
-    'Shifting',
-    'Practice',
-  ];
-
+    {label: 'Defective Official Release', value: 'Defective Official Release'},
+    {label: 'Defective Official Entry', value: 'Defective Official Entry'},
+    {label: 'Shift to Idle', value: 'Shift to Idle'},
+    {label: 'Official Release', value: 'Official Release'},
+    {label: 'Picture Introduction', value: 'Picture Introduction'},
+    {label: 'Shifting', value: 'Shifting'},
+    {label: 'Practice', value: 'Practice'},
+  ]
   banksList = [
     'All',
     'Ziraat Bankası',
@@ -93,24 +141,56 @@ export class DataService {
 
   boatInqueryType = ['Gidiş', 'Dönüş', 'ayrılma', 'yanaşma'];
 
-  Purposes = ['General', 'Supply', 'Asylum', 'Commercial', 'Shipyard'];
+  // Purposes22 = ['General', 'Supply', 'Asylum', 'Commercial', 'Shipyard'];
+
+  Purposes = [
+    {label: 'General', value: 'General'},
+    {label: 'Supply', value: 'Supply'},
+    {label: 'Asylum', value: 'Asylum'},
+    {label: 'Commercial', value: 'Commercial'},
+    {label: 'Shipyard', value: 'Shipyard'},
+  ]
+
 
   ports = ['Famagusta', 'kyrenia', 'Lefke', 'kalecik'];
 
-  martialStatus = ['Single', 'Married', 'Divorced'];
+  // martialStatus = ['Single', 'Married', 'Divorced'];
 
-  gender = ['Male', 'Female'];
+  martialStatus = [
+    {label: 'Single', value: 'Single'},
+    {label: 'Married', value: 'Married'},
+    {label: 'Divorced', value: 'Divorced'},
+  ]
 
+  // gender = ['Male', 'Female'];
+  gender = [
+    {label: 'Male', value: 'Male'},
+    {label: 'Female', value: 'Female'},
+  ]
   bloodTypes = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 
-  staffTypes = [
-    'Worker',
-    'Temporary employee',
-    'Employee',
-    'Contract Employee',
-  ];
+  // staffTypes = [
+  //   'Worker',
+  //   'Temporary employee',
+  //   'Employee',
+  //   'Contract Employee',
+  // ];
 
-  roles = ['Admin', 'Accountant', 'Registry', 'Collection'];
+  staffTypes = [
+    {label: 'Worker', value: 'Worker'},
+    {label: 'Temporary employee', value: 'Temporary employee'},
+    {label: 'Employee', value: 'Employee'},
+    {label: 'Contract Employee', value: 'Contract Employee'},
+  ]
+
+  roles = [
+    {label: 'Admin', value: 'Admin'},
+    {label: 'Accountant', value: 'Accountant'},
+    {label: 'Registry', value: 'Registry'},
+    {label: 'Collection', value: 'Collection'},
+  ]
+
+  // roles = ['Admin', 'Accountant', 'Registry', 'Collection'];
 
   months = [
     'January', //31

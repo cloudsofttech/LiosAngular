@@ -154,7 +154,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="activeTab === 'Ship Information'">
+    <div *ngIf="activeTab === 'Ship Information' || activeTab === 'Gemi Bilgileri'">
       <div class="header">
         <span>{{ "Ship Information" | translate }}</span>
         <button
@@ -228,8 +228,14 @@
             <p-dropdown
               [options]="shipTypes"
               formControlName="type"
-              placeholder=" "
-            ></p-dropdown>
+              placeholder=" ">
+              <ng-template pTemplate="item" let-item>
+                {{item.label | translate}}
+                </ng-template>
+                <ng-template pTemplate="selectedItem" let-item>
+                {{item.label | translate}}
+                </ng-template>
+          </p-dropdown>
             <label>{{ "Ship Type" | translate }}</label>
           </span>
           <small
@@ -320,7 +326,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="activeTab === 'Extra Information'" style="padding-bottom: 24px">
+    <div *ngIf="activeTab === 'Extra Information' || activeTab === 'Ekstra Bilgi'" style="padding-bottom: 24px">
       <div class="header">
         <span>{{ "Extra Information" | translate }}</span>
         <button
@@ -707,7 +713,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="activeTab === 'Construction'">
+    <div *ngIf="activeTab === 'Construction' || activeTab === 'Yapım Ayrıntıları'">
       <div class="header">
         <span>{{ "Construction" | translate }}</span>
         <button
@@ -832,7 +838,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="activeTab === 'Size'">
+    <div *ngIf="activeTab === 'Size' || activeTab === 'Boyut'">
       <div class="header">
         <span>{{ "Size" | translate }}</span>
         <button
@@ -919,7 +925,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="activeTab === 'Engine'" style="padding-bottom: 24px">
+    <div *ngIf="activeTab === 'Engine' || activeTab === 'Makine'" style="padding-bottom: 24px">
       <div class="header">
         <span>{{ "Engine" | translate }}</span>
         <button
@@ -1096,7 +1102,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="activeTab === 'Mortage'">
+    <div *ngIf="activeTab === 'Mortage' || activeTab === 'İpotek'">
       <div class="header">
         <span *ngIf="mortageId">{{ "Edit Mortage" | translate }}</span>
         <span *ngIf="!mortageId">{{ "Add New Mortage" | translate }}</span>
@@ -1354,7 +1360,7 @@
         </p-table>
       </div>
     </div>
-    <div *ngIf="activeTab === 'Owner'">
+    <div *ngIf="activeTab === 'Owner' || activeTab === 'Gemi Sahipleri'">
       <div class="header">
         <span *ngIf="ownerId">{{ "Edit Owner" | translate }}</span>
         <span *ngIf="!ownerId">{{ "Add New Owner" | translate }}</span>
@@ -1654,7 +1660,7 @@
         </p-table>
       </div>
     </div>
-    <div *ngIf="activeTab === 'Trips'">
+    <div *ngIf="activeTab === 'Trips' || activeTab === 'Gemi İşlemleri'">
       <div class="table-card table-container">
         <div class="card-header">
           <span>Ship Trips</span>

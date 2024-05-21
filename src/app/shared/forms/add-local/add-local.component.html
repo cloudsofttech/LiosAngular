@@ -68,8 +68,14 @@
       <p-dropdown
         [options]="martialStatus"
         formControlName="martialStatus"
-        placeholder=" "
-      ></p-dropdown>
+        placeholder=" ">            
+      <ng-template pTemplate="item" let-item>
+        {{item.label | translate}}
+        </ng-template>
+        <ng-template pTemplate="selectedItem" let-item>
+        {{item.label | translate}}
+        </ng-template>
+    </p-dropdown>
         <label>{{ "Martial Status" | translate }}</label>
     </span>
     <small *ngIf="checkValidity('martialStatus')" class="p-error">{{
@@ -82,8 +88,13 @@
       <p-dropdown
         [options]="gender"
         formControlName="gender"
-        placeholder=" "
-      ></p-dropdown>
+        placeholder=" ">      
+      <ng-template pTemplate="item" let-item>
+        {{item.label | translate}}
+        </ng-template>
+        <ng-template pTemplate="selectedItem" let-item>
+        {{item.label | translate}}
+        </ng-template></p-dropdown>
         <label>{{ "Gender" | translate }}</label>
     </span>
     <small *ngIf="checkValidity('gender')" class="p-error">{{
@@ -120,8 +131,14 @@
       <p-dropdown
         [options]="staffTypes"
         formControlName="staffType"
-        placeholder="{{ 'Staff Type' | translate }}"
-      ></p-dropdown>
+        placeholder="{{ 'Staff Type' | translate }}">      
+      <ng-template pTemplate="item" let-item>
+        {{item.label | translate}}
+        </ng-template>
+        <ng-template pTemplate="selectedItem" let-item>
+        {{item.label | translate}}
+        </ng-template>
+    </p-dropdown>
     </span>
     <small *ngIf="checkValidity('staffType')" class="p-error">{{
       "Invalid input." | translate
@@ -153,8 +170,14 @@
       <p-dropdown
         [options]="roles"
         formControlName="role"
-        placeholder="{{ ' ' | translate }}"
-      ></p-dropdown>
+        placeholder="{{ ' ' | translate }}">      
+      <ng-template pTemplate="item" let-item>
+        {{item.label | translate}}
+        </ng-template>
+        <ng-template pTemplate="selectedItem" let-item>
+        {{item.label | translate}}
+        </ng-template>
+    </p-dropdown>
       <label>{{ "Role" | translate }}</label>
     </span>
     <small *ngIf="checkValidity('role')" class="p-error">{{

@@ -572,23 +572,30 @@ export class PendingTripsComponent implements OnInit {
   toggleMenuReports(item, event) {
     this.objToSend = item;
 
+    var start: number;
+    start = 0;   
     this.reportOptionsMenu[0].items = [];
-    if (item.shipInvoice) {
+    if (item.shipInvoice && !item.isFreeType) {
       this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[0]);
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[1]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[1]);   
     }
+    else if(item.shipInvoice && item.isFreeType){
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[0]);
+      start = 1;
+    }
+      
     if (item.craneInvoice) {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[2]);
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[3]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[2-start]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[3-start]);
     }
     if (item.boatInvoice) {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[4]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[4-start]);
     }
     if (item.overTimeReport) {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[5]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[5-start]);
     }
     if (item.boatReport) {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[6]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[6-start]);
     }
 
     this.report_menu.toggle(event);

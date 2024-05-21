@@ -4,7 +4,7 @@ export const locale = {
   lang: 'en',
   data: {
     // my translation
-
+    Role:'Role',
     // start of Users page
     DateRange: 'Date Range',
     'Registration Number': 'Registration Number',
@@ -13,10 +13,12 @@ export const locale = {
     Explanation: 'Explanation',
     'Foundation Date': 'Foundation Date',
     'Agency Type': 'Agency Type',
+    'Agency Details': 'Agency Details',
     Telephone: 'Telephone',
     'Fax 1': 'Fax 1',
     'Fax 2': 'Fax 2',
     'Fax 3': 'Fax 3',
+    'Is Insured': 'Is Insured',
     Country: 'Country',
     District: 'District',
     Address: 'Address',
@@ -163,6 +165,7 @@ export const locale = {
     'Add Ship': 'Add Ship',
     Type: 'Type',
     'Captain Name': 'Captain Name',
+    'Captain Details': 'Captain Details',
     'Agency Name': 'Agency Name',
     // 'Country':'Country',
     // 'Code':'Code',
