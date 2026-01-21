@@ -8,6 +8,7 @@ import { DiscountComponent } from './discount/discount.component';
 import { ServicesComponent } from './services/services.component';
 import { PortComponent } from './port/port.component';
 import { HolidayComponent } from './holiday/holiday.component';
+import { KasaComponent } from './kasa/kasa.component';
 import { UserLoggingsComponent } from './user-loggings/user-loggings.component';
 
 
@@ -17,6 +18,7 @@ import { UserLoggingsComponent } from './user-loggings/user-loggings.component';
     DiscountComponent,
     ServicesComponent,
     PortComponent,
+    KasaComponent,
     HolidayComponent,
     UserLoggingsComponent
   ],

@@ -1545,6 +1545,17 @@ export class DataService {
     });
   }
 
+  // kasa part 
+    getAllKasa() {
+    return this.http.get<any>(`${environment.apiUrl}kasa?pageSize=1000&pageNumber=1`, {
+      headers: this.httpOptions.headers,
+    });
+  }
+    openNewKasa() {
+    return this.http.get<any>(`${environment.apiUrl}kasa/close`, {
+      headers: this.httpOptions.headers,
+    });
+  }
   // holiday part
 
   getAllHoliday() {

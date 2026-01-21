@@ -180,6 +180,11 @@ export class NavbarComponent implements OnInit {
             route: '/configuration/holiday',
           },
           {
+            label: 'Kasa',
+            icon: 'fas fa-lock',
+            route: '/configuration/kasa',
+          },          
+          {
             label: 'Loggings',
             icon: 'fas fa-users-cog',
             route: '/configuration/loggings',

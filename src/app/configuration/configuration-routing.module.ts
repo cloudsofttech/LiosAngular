@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConfigurationComponent } from './configuration.component';
 import { DiscountComponent } from './discount/discount.component';
 import { HolidayComponent } from './holiday/holiday.component';
+import { KasaComponent } from './kasa/kasa.component';
 import { PortComponent } from './port/port.component';
 import { ServicesComponent } from './services/services.component';
 import { UserLoggingsComponent } from './user-loggings/user-loggings.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'port', component: PortComponent },
   { path: 'holiday', component: HolidayComponent },
+  { path: 'kasa', component: KasaComponent },
   { path: 'loggings', component: UserLoggingsComponent },
 ];
 

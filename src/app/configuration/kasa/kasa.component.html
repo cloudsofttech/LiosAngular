@@ -1,0 +1,77 @@
+<div class="card-wrapper" *ngIf="!isLoading" [@fadeInOut]>
+  <div class="table-card">
+    <div class="card-header">
+      <!-- <span>Yearly win</span> -->
+
+      <div class="header-buttons-container">
+        <p-button
+          [label]="translate.instant('Open/Close')"
+          icon="pi pi-refresh"
+          class="table-button mr"
+          iconPos="right"
+          (click)="onAddOpenCloseClick()"
+        ></p-button>
+      </div>
+    </div>
+
+    <div class="datatable-container">
+      <div class="datatable-wrapper">
+        <table class="datatable">
+          <thead>
+            <tr>
+              <th
+                *ngFor="let column of columns"
+                [hidden]="!selectedColumns.includes(column)"
+              >
+                <div class="th-content">
+                  {{ column.name }}
+                  <i class="pi pi-sort-alt"></i>
+                </div>
+              </th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let item of tableData">
+              <td
+                *ngFor="let column of columns"
+                [hidden]="!selectedColumns.includes(column)"
+              >
+                <span
+                  class="td-text"
+                  *ngIf="
+                    !(
+                      item[column.value] === true ||
+                      item[column.value] === false
+                    )
+                  "
+                >
+                  {{ item[column.value] }}
+                </span>
+
+                <span
+                  class="td-text"
+                  style="text-align: center"
+                  *ngIf="item[column.value] === true"
+                >
+                  <i class="pi pi-check-circle true"></i>
+                </span>
+
+                <span
+                  class="td-text"
+                  style="text-align: center"
+                  *ngIf="item[column.value] === false"
+                >
+                  <i class="pi pi-times-circle false"></i>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-loading *ngIf="isLoading" [@fadeInOut]></app-loading>
