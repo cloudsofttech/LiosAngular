@@ -49,26 +49,22 @@ export class AddCraneComponent implements OnInit {
     private fb: FormBuilder,
     private messageService: MessageService,
     private dialogRef: Dialog,
-    public translate: TranslateService
+    public translate: TranslateService,
   ) {
-
-
-      this.dialogRef.onShow.subscribe(() => {
-        if(this.formService.checkForm('addCraneForm')) {
-
-          this.initializeForm();
-          this.loadCraneServices();
-          this.loadShips();
-          this.loadAgencies();
-          this.loadSubscriptions();
-        }
-      });
-      this.dialogRef.onHide.subscribe(() => {
-        if(this.formService.checkForm('addCraneForm')) {
-          this.destroySubscription();
-        }
-      });
-
+    this.dialogRef.onShow.subscribe(() => {
+      if (this.formService.checkForm('addCraneForm')) {
+        this.initializeForm();
+        this.loadCraneServices();
+        this.loadShips();
+        this.loadAgencies();
+        this.loadSubscriptions();
+      }
+    });
+    this.dialogRef.onHide.subscribe(() => {
+      if (this.formService.checkForm('addCraneForm')) {
+        this.destroySubscription();
+      }
+    });
   }
 
   ngOnInit() {}
@@ -79,7 +75,7 @@ export class AddCraneComponent implements OnInit {
     //   .subscribe((value) => {
     //     console.log(value);
     //   });
-    console.log(this.formName)
+    console.log(this.formName);
     this.submitSubscriber$ = this.formService
       .getSubmitSubject()
       .subscribe((value) => {
@@ -87,9 +83,9 @@ export class AddCraneComponent implements OnInit {
           this.submitForm();
         }
       });
-    
+
     this.formValidationSubscriber$ = this.formService.listenToValueChanges(
-      this.form
+      this.form,
     );
 
     this.dirtyFormSubscriber$ = this.formService
@@ -120,6 +116,8 @@ export class AddCraneComponent implements OnInit {
     if (!obj.serviceId && !obj.shipId && !obj.agencyId) {
       return;
     }
+    if (obj.craneAgencyId?.id) obj.craneAgencyId = obj.craneAgencyId.id;
+
     this.dataService.addNewCrane(obj).subscribe((response) => {
       this.formService.triggerRefresh();
       this.messageService.add({
@@ -135,6 +133,8 @@ export class AddCraneComponent implements OnInit {
       serviceId: new FormControl(null, [Validators.required]),
       shipId: new FormControl(null, [Validators.required]),
       agencyId: new FormControl(null, [Validators.required]),
+      craneAgencyId: new FormControl(null, [Validators.required]),
+
       weight: new FormControl(0, []),
       quantity: new FormControl(0, []),
       start: new FormControl(new Date(), []),
@@ -193,7 +193,7 @@ export class AddCraneComponent implements OnInit {
           summary: 'Error',
           detail: 'Bir hata oluştu.',
         });
-      }
+      },
     );
   }
 
@@ -209,6 +209,10 @@ export class AddCraneComponent implements OnInit {
     this.filteredAgencies = filtered;
   }
 
+  filterCraneAgencies(event) {
+    this.filterAgencies(event);
+  }
+
   loadAgencies() {
     this.dataService.getAllAgencies('', 10000, 1, false).subscribe(
       (response) => {
@@ -221,7 +225,7 @@ export class AddCraneComponent implements OnInit {
           summary: 'Error',
           detail: 'Bir hata oluştu.',
         });
-      }
+      },
     );
   }
 
