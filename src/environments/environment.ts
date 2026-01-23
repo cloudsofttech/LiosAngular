@@ -10,7 +10,7 @@ export const environment = {
   production: false,
   isMockEnabled: false, // You have to switch this, when your real back-end is done
   authTokenKey: 'authce9d77b308c149d5992a80073637e4d5',
-  //apiUrl: 'https://localhost:7229/api/v1/',
+  //apiUrl: 'https://report.lios.limanlar.gov.ct.tr/api/v1/',
   //reportUrl: 'https://report.lios.limanlar.gov.ct.tr/'
   apiUrl: 'http://lios.runasp.net/api/v1/',
   reportUrl: 'https://report.lios.limanlar.gov.ct.tr/'
