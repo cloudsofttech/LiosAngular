@@ -65,6 +65,29 @@
     </p-autoComplete>
   </div>
 
+  <div class="input-container">
+  <p-autoComplete
+    formControlName="craneAgencyId"
+    [suggestions]="filteredAgencies"
+    (completeMethod)="filterCraneAgencies($event)"
+    field="name"
+    [dropdown]="true"
+    appendTo="body"
+    [placeholder]="translate.instant('Crane Agency')"
+  >
+    <ng-template let-item pTemplate="item">
+      <div class="country-item">
+        <div>{{ item.name }}</div>
+      </div>
+    </ng-template>
+
+    <small *ngIf="checkValidity('craneAgencyId')" class="p-error">
+      {{ "Invalid input." | translate }}
+    </small>
+  </p-autoComplete>
+</div>
+
+
   <div class="input-container" *ngIf="showDateForCrane()">
     <span class="p-float-label">
       <p-calendar
