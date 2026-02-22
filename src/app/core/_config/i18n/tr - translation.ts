@@ -632,7 +632,9 @@ export const locale = {
     
     'Reports':'Reports',
     'Ship Form':'Ship Form',
+    'Ship Form 2':'Ship Form 2',
     'Ship Invoice':'Ship Invoice',
+    'Ship Invoice 2':'Ship Invoice 2',
     'Boat Invoice':'Boat Invoice',
     'Trips':'Trips',
     'Agency Creation Date':'Agency Creation Date',

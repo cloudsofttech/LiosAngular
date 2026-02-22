@@ -97,9 +97,9 @@ columns2 = [
 ];
 
 
-  dateRanges: any = [new Date(2021, 0, 1), new Date()];
+  dateRanges: any = [new Date(2026, 0, 1), new Date()];
 
-  dateRanges2: any = [new Date(2021, 0, 1), new Date()];
+  dateRanges2: any = [new Date(2026, 0, 1), new Date()];
 
   constructor(
     private fb: FormBuilder,

@@ -638,7 +638,9 @@ export const locale = {
 
     'Reports':'Raporlar',
     'Ship Form':'Gemi Faturası',
+    'Ship Form 2':'Gemi Faturası 2',    
     'Ship Invoice':'Gemi Makbuzu',
+    'Ship Invoice 2':'Gemi Makbuzu 2',    
     'Boat Invoice':'Araç Makbuzu',
     'Trips':'Gemi İşlemleri',
     'Agency Creation Date':'Acente Oluşturulma Tarihi',

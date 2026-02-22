@@ -41,7 +41,7 @@ export class HistoryTripsComponent implements OnInit {
   tableData: any[];
   @ViewChild('paginator') paginator: Paginator;
 
-  dateRanges: any = [new Date(2021, 0, 1), new Date()];
+  dateRanges: any = [new Date(2026, 0, 1), new Date()];
 
   selectedColumns: any[] = [];
 
@@ -180,6 +180,13 @@ export class HistoryTripsComponent implements OnInit {
       command: () => {
         this.showTelerikReport(this.objToSend.id, 'ship');
       },
+    },    
+    {
+      label: this.translate.instant('Ship Form 2'),
+      icon: 'pi pi-file',
+      command: () => {
+        this.showTelerikReport(this.objToSend.id, 'ship',true);
+      },
     },
     {
       label: this.translate.instant('Ship Invoice'),
@@ -188,6 +195,13 @@ export class HistoryTripsComponent implements OnInit {
         this.showTelerikReport(this.objToSend.id, 'total');
       },
     },
+    {
+      label: this.translate.instant('Ship Invoice 2'),
+      icon: 'pi pi-file',
+      command: () => {
+        this.showTelerikReport(this.objToSend.id, 'total',true);
+      },
+    },    
     {
       label: this.translate.instant('Crane 1'),
       icon: 'pi pi-file',
@@ -361,26 +375,36 @@ export class HistoryTripsComponent implements OnInit {
     var start: number;
     start = 0;   
 
-    if (item.shipInvoice && !item.isFreeType) {
+    if (item.shipInvoice && !item.isFreeType && !item.isAgencyChanged){
       this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[0]);
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[1]);   
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[2]);   
     }
-    else if(item.shipInvoice && item.isFreeType){
+    else if (item.shipInvoice && !item.isFreeType && item.isAgencyChanged){
       this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[0]);
-      start = 1;
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[1]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[2]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[3]);   
+    }    
+    else if(item.shipInvoice && item.isFreeType && !item.isAgencyChanged){
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[0]);
+    }    
+    else if(item.shipInvoice && item.isFreeType && item.isAgencyChanged){
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[0]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[1]);
     }
+
     if (item.craneInvoice) {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[2-start]);
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[3-start]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[4]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[5]);
     }
     if (item.boatInvoice) {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[4-start]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[6]);
     }
     if (item.overTimeReport) {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[5-start]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[7]);
     }
     if (item.boatReport) {
-      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[6-start]);
+      this.reportOptionsMenu[0].items.push(this.reportOptionsMenuFull[8]);
     }
 
     this.report_menu.toggle(event);

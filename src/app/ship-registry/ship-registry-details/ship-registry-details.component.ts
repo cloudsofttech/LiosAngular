@@ -96,9 +96,9 @@ export class ShipRegistryDetailsComponent implements OnInit {
     { value: 'date', name: this.translate.instant('Date') },
   ];
 
-  dateRanges: any = [new Date(2021, 0, 1), new Date()];
+  dateRanges: any = [new Date(2026, 0, 1), new Date()];
 
-  dateRanges2: any = [new Date(2021, 0, 1), new Date()];
+  dateRanges2: any = [new Date(2026, 0, 1), new Date()];
 
   shipDetails: any;
   shipDashboard: any;

@@ -79,7 +79,7 @@ export class UserLoggingsComponent implements OnInit {
     value: '',
   };
 
-  dateRanges: any = [new Date(2021, 0, 1), new Date()];
+  dateRanges: any = [new Date(2026, 0, 1), new Date()];
 
   optionsMenu: MenuItem[] = [
     // {

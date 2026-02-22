@@ -102,6 +102,8 @@ export class AddManualPaymentComponent implements OnInit {
       obj.code9084 +
       obj.code9138 +
       obj.code9148 +
+      obj.code9570 +
+      obj.code9444 +
       obj.code9195;
     if (obj.amount !== totalCodes) {
       this.messageService.add({
@@ -135,7 +137,8 @@ export class AddManualPaymentComponent implements OnInit {
   initializeForm() {
     this.form = this.fb.group({
       amount: new FormControl(null, [Validators.required]),
-      agency: new FormControl(null, [Validators.required]),
+      agency: new FormControl(null),
+      person: new FormControl(null),
       date: new FormControl(new Date(), []),
       chequeNo: new FormControl(null, []),
       description: new FormControl(null, []),
@@ -150,6 +153,8 @@ export class AddManualPaymentComponent implements OnInit {
       code9195: new FormControl(0, []),
       code9138: new FormControl(0, []),
       code9148: new FormControl(0, []),
+      code9570: new FormControl(0, []),
+      code9444: new FormControl(0, []),
     });
   }
 

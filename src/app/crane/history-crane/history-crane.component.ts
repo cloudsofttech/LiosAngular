@@ -43,7 +43,7 @@ export class HistoryCraneComponent implements OnInit {
     { value: 'paidDate', name: this.translate.instant('Paid Date') },
   ];
 
-  dateRanges: any = [new Date(2021, 0, 1), new Date()];
+  dateRanges: any = [new Date(2026, 0, 1), new Date()];
 
   optionsMenu: MenuItem[] = [
     {

@@ -33,6 +33,13 @@
 
   <div class="input-container">
     <span class="p-float-label">
+      <input formControlName="person" type="text" pInputText />
+      <label>{{ "Person" | translate }}</label>
+    </span>
+  </div>
+
+  <div class="input-container">
+    <span class="p-float-label">
       <p-calendar
         formControlName="date"
         [showIcon]="true"
@@ -175,6 +182,26 @@
       <label>{{ "Port and Ship (9049)" | translate }}</label>
     </span>
     <small *ngIf="checkValidity('code9049')" class="p-error">{{
+      "Invalid input." | translate
+    }}</small>
+  </div>
+
+  <div class="input-container">
+    <span class="p-float-label">
+      <input formControlName="code9444" type="number" pInputText />
+      <label>{{ "Other (9444)" | translate }}</label>
+    </span>
+    <small *ngIf="checkValidity('code9444')" class="p-error">{{
+      "Invalid input." | translate
+    }}</small>
+  </div>
+
+    <div class="input-container">
+    <span class="p-float-label">
+      <input formControlName="code9570" type="number" pInputText />
+      <label>{{ "Other (9570)" | translate }}</label>
+    </span>
+    <small *ngIf="checkValidity('code9570')" class="p-error">{{
       "Invalid input." | translate
     }}</small>
   </div>

@@ -46,7 +46,7 @@ export class ManualPaymentComponent implements OnInit {
   ];
 
   selectedDropdownOption: any = 'All';
-  dateRanges: any = [new Date(2022, 0, 1), new Date()];
+  dateRanges: any = [new Date(2026, 0, 1), new Date()];
 
   agencyQuery: any = '';
 
