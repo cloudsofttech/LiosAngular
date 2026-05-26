@@ -7,6 +7,7 @@ import { KasaComponent } from './kasa/kasa.component';
 import { PortComponent } from './port/port.component';
 import { ServicesComponent } from './services/services.component';
 import { UserLoggingsComponent } from './user-loggings/user-loggings.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'discount', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'port', component: PortComponent },
   { path: 'holiday', component: HolidayComponent },
   { path: 'kasa', component: KasaComponent },
+  { path: 'report', component: ReportComponent },
   { path: 'loggings', component: UserLoggingsComponent },
 ];
 

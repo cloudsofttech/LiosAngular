@@ -1,0 +1,41 @@
+<div class="report-controls">
+  <div class="controls-card">
+    <div class="controls-inner">
+      <p-calendar
+        [(ngModel)]="dateRanges"
+        selectionMode="range"
+        [readonlyInput]="true"
+        inputId="range"
+        [placeholder]="'Date Range'"
+        [showIcon]="true"
+        appendTo="body"
+        class="date-range"
+      ></p-calendar>
+
+      <div class="button-row">
+        <p-button
+          label="Cash Closing"
+          icon="pi pi-file"
+          class="p-button-sm cash-button"
+          (click)="showTelerikReport('closing')"
+        ></p-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Telerik Dialog -->
+<p-dialog
+  *ngIf="displayTelerikDialog"
+  [(visible)]="displayTelerikDialog"
+  [modal]="false"
+  [style]="{ width: '90vw' }"
+>
+  <app-telerik-viewer
+    [var1]="this.reportVar1"
+    [var2]="this.reportVar2"
+    [isAlternative]="this.reportIsAlternative"
+    [input]="0"
+  >
+  </app-telerik-viewer>
+</p-dialog>

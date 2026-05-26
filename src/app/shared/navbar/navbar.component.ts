@@ -185,6 +185,11 @@ export class NavbarComponent implements OnInit {
             route: '/configuration/kasa',
           },          
           {
+            label: 'Report',
+            icon: 'fas fa-file-alt',
+            route: '/configuration/report',
+          },
+          {
             label: 'Loggings',
             icon: 'fas fa-users-cog',
             route: '/configuration/loggings',

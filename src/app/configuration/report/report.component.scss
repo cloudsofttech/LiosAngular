@@ -1,0 +1,83 @@
+/* Styles for report page */
+.report-page {
+  padding: 16px;
+}
+
+.report-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  padding: 12px 0 24px 0;
+  width: 100vw;
+  box-sizing: border-box;
+
+  .controls-card {
+    width: 100%;
+    max-width: 760px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    padding: 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .controls-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .date-range {
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .date-range ::ng-deep .p-calendar {
+    width: 100% !important;
+  }
+
+  .date-range ::ng-deep .p-inputtext,
+  .date-range ::ng-deep .p-datepicker,
+  .date-range ::ng-deep .p-inputwrapper {
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .button-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cash-button {
+    width: 100%;
+    max-width: 420px;
+    height: 66px;
+
+    ::ng-deep button.p-button {
+      height: 100%;
+      width: 100%;
+      background: #ffffff;
+      color: #45496e;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 0 20px;
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    ::ng-deep .p-button-label {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    ::ng-deep button.p-button:hover {
+      background: rgb(233, 236, 239);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    }
+  }
+}

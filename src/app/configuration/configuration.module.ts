@@ -10,6 +10,7 @@ import { PortComponent } from './port/port.component';
 import { HolidayComponent } from './holiday/holiday.component';
 import { KasaComponent } from './kasa/kasa.component';
 import { UserLoggingsComponent } from './user-loggings/user-loggings.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { UserLoggingsComponent } from './user-loggings/user-loggings.component';
     KasaComponent,
     HolidayComponent,
     UserLoggingsComponent
+    ,ReportComponent
   ],
   imports: [
     CommonModule,

@@ -52,6 +52,10 @@ export class TelerikViewerComponent implements OnInit {
       this.reportForm = 'Lios/ShipForm';
     } else if (this.var1 === 'total') {
       this.reportForm = 'Lios/ShipInvoice';
+    } else if (this.var1 === 'closing') {
+      this.reportForm = 'Lios/Closing';
+      this.fullUrl = this.baseUrl + this.var1 + this.var2;
+      this.param.Url = this.fullUrl;
     } else if (this.var1 === 'overtime') {
       this.reportForm = 'Lios/OvertimeInquiry';
     } else if (this.var1 === 'boat/invoice') {
