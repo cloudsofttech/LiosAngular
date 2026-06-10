@@ -220,12 +220,11 @@ isLoading: boolean = false;
   }
 
   search(event?) {
-    if (event) {
       if (event.keyCode === 13) {
         this.paginator.changePageToFirst(event);
         this.getData();
       }
-    } else {
+    else {
       this.paginator.changePageToFirst(event);
       this.getData();
     }
