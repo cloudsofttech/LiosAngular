@@ -51,7 +51,7 @@ export class EditArrivalComponent implements OnInit {
   categoriesArr: any[] = [];
   @Input() formName: any;
 
-  categoryObj: any = { categoryId: null, quantity: null };
+  categoryObj: any = { categoryId: null, quantity: null, weight: null };
 
   constructor(
     private dataService: DataService,
@@ -298,6 +298,7 @@ export class EditArrivalComponent implements OnInit {
       categoryId: this.categoryObj.categoryId.id,
       transactionId: this.formObj.id,
       quantity: this.categoryObj.quantity,
+      weight: this.categoryObj.weight,
     };
 
     this.dataService.addLoad(load).subscribe(
@@ -311,7 +312,7 @@ export class EditArrivalComponent implements OnInit {
       }
     );
     // console.log(this.categories.value);
-    this.categoryObj = { categoryId: null, quantity: null };
+    this.categoryObj = { categoryId: null, quantity: null, weight: null };
   }
 
   deleteProduct(product: any, index: any) {

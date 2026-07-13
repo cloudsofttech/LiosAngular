@@ -253,6 +253,12 @@
         </span>
       </div>
       <div class="input-container">
+        <span class="p-float-label">
+          <input [(ngModel)]="categoryObj.weight" type="number" pInputText />
+          <label>{{ "Weight" | translate }}</label>
+        </span>
+      </div>
+      <div class="input-container">
         <p-button
           [disabled]="!categoryObj.categoryId || !categoryObj.quantity"
           label="Add To List"
@@ -271,6 +277,7 @@
         <tr>
           <th>Category Name</th>
           <th>Quantity</th>
+          <th>Weight</th>
           <th>Option</th>
         </tr>
       </ng-template>
@@ -283,6 +290,7 @@
             {{ product.categoryName }}
           </td>
           <td>{{ product.quantity }}</td>
+          <td>{{ product.weight }}</td>
           <td>
             <i
               (click)="deleteProduct(product, rowIndex)"

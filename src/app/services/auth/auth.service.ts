@@ -95,7 +95,7 @@ export class AuthService {
       }
 
       if (user.role === 'Collection') {
-        user.access = ['dashboard', 'trips', 'manual-payment', 'crane'];
+        user.access = ['dashboard', 'trips', 'manual-payment', 'crane','configuration'];
       }
       // console.log(this.currentUser);
     }

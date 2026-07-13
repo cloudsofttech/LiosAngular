@@ -383,13 +383,15 @@ export class PendingTripsComponent implements OnInit {
 
     if (
       this.authService.currentUser.role !== 'Collection' &&
-      this.authService.currentUser.role !== 'Admin'
+      this.authService.currentUser.role !== 'Admin' && 
+      this.authService.currentUser.role !== 'Accountant'
     ) {
       this.optionsMenu[0].items.splice(0, 1);
       this.optionsMenuInPort[0].items.splice(0, 1);
     }
 
-    if (this.authService.currentUser.role !== 'Admin') {
+    if (this.authService.currentUser.role !== 'Admin' && 
+      this.authService.currentUser.role !== 'Accountant') {
       // this.optionsMenu[0].items.splice( this.optionsMenu[0].items.findIndex(x=>x.icon == 'pi pi-trash') ,1);
       this.optionsMenu[0].items.splice(this.optionsMenu[0].items.length - 1, 1);
     }

@@ -47,7 +47,7 @@ export class ArrivalComponent implements OnInit {
   groupsArr: any[];
   categoriesArr: any[] = [];
 
-  categoryObj: any = { categoryId: null, quantity: null };
+  categoryObj: any = { categoryId: null, quantity: null, weight: null };
 
   ships: any[] = [];
   filteredShips: any;
@@ -284,7 +284,7 @@ export class ArrivalComponent implements OnInit {
     delete this.categoryObj?.categoryId?.name;
     this.categories.value.push(this.categoryObj);
     // console.log(this.categories.value);
-    this.categoryObj = { categoryId: null, quantity: null };
+    this.categoryObj = { categoryId: null, quantity: null, weight: null };
   }
 
   deleteProduct(product: any, index: any) {
