@@ -18,7 +18,7 @@
                   [hidden]="!selectedColumns.includes(column)"
                 >
                   <div class="th-content">
-                    {{ column.name }}
+                    {{ column.name  | translate}}
                     <i class="pi pi-sort-alt"></i>
                   </div>
                 </th>
@@ -42,7 +42,7 @@
                       item[column.value] !== false
                     "
                   >
-                    {{ item[column.value] }}
+                    {{ item[column.value] | translate }}
                     <span *ngIf="column.value === 'percent'">%</span>
                   </span>
                   <span
@@ -96,7 +96,7 @@
                   [hidden]="!selectedColumns.includes(column)"
                 >
                   <div class="th-content">
-                    {{ column.name }}
+                    {{ column.name | translate }}
                     <i class="pi pi-sort-alt"></i>
                   </div>
                 </th>
@@ -120,7 +120,7 @@
                       item[column.value] !== false
                     "
                   >
-                    {{ item[column.value] }}
+                    {{ item[column.value] | translate}}
                     <span *ngIf="column.value === 'percent'">%</span>
                   </span>
                   <span

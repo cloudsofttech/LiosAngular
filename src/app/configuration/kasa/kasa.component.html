@@ -24,7 +24,7 @@
                 [hidden]="!selectedColumns.includes(column)"
               >
                 <div class="th-content">
-                  {{ column.name }}
+                  {{ column.name | translate }}
                   <i class="pi pi-sort-alt"></i>
                 </div>
               </th>
@@ -47,7 +47,7 @@
                     )
                   "
                 >
-                  {{ item[column.value] }}
+                  {{ item[column.value] | translate }}
                 </span>
 
                 <span

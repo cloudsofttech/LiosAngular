@@ -177,7 +177,8 @@ export class DataService {
   // ];
 
   staffTypes = [
-    {label: 'Worker', value: 'Worker'},
+    {label: 'Worker', value: 'Worker'},    
+    {label: 'Temporary Worker', value: 'Temporary Worker'},
     {label: 'Temporary employee', value: 'Temporary employee'},
     {label: 'Employee', value: 'Employee'},
     {label: 'Contract Employee', value: 'Contract Employee'},

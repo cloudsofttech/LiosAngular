@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from 'src/app/services/data/data.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-report',
@@ -14,7 +15,8 @@ export class ReportComponent {
   reportIsAlternative: any;
   displayTelerikDialog: boolean = false;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, public translate: TranslateService,
+  ) {}
 
   showTelerikReport(var1 = '', isAlternative = false) {
     let startDate = this.dateRanges[0]

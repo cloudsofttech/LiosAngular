@@ -94,14 +94,16 @@ export const locale = {
     Divorced: 'Divorced',
     'Is Login': 'Is Login',
     Login: 'Login',
+    'Log Out': 'Log Out',
     'Is Transfer': 'Is Transfer',
     Transfer: 'Transfer',
     Male: 'Male',
     Female: 'Female',
-    Wroker: 'Wroker', // these 4 take translation from old app [better]
+    Worker: 'Worker', // these 4 take translation from old app [better]
+    'Temporary Worker':'Temporary Worker',
     'Temporary employee': 'Temporary employee', // these 4 take translation from old app [better]
     Employee: 'Employee', // these 4 take translation from old app [better]
-    'Contract employee': 'Contract employee', // these 4 take translation from old app [better]
+    'Contract Employee': 'Contract Employee', // these 4 take translation from old app [better]
 
     // end of Users page
 
@@ -122,6 +124,8 @@ export const locale = {
     Percentage: 'Percentage',
     Percent: 'Percentage',
     Positive: 'Positive',
+    'IsPaid': 'IsPaid',
+    'Is Paid': 'Is Paid',
     'Create New Group': 'Create New Group',
     'Required field, must be between 0 and 100':
       'Required field, must be between 0 and 100',
@@ -319,6 +323,13 @@ export const locale = {
     Extension: 'Extension',
     Remove: 'Remove',
 
+    //Roles
+
+    'Admin':'Admin',
+    'Accountant':'Accountant',
+    'Registry':'Registry',
+    'Collection':'Collection',
+
     //Engine
     Engine: 'Engine',
     'New Engine has been Added.': 'New Engine has been Added.',
@@ -459,14 +470,17 @@ export const locale = {
     Container: 'Container',
     'Number of Containers': 'Number of Containers',
 
+    'A (GENERAL LOAD)': 'A (GENERAL LOAD)',
     'A (BULK LOAD)': 'A (BULK LOAD)',
     'A (IRON LOAD)': 'A (IRON LOAD)',
     'B (GOING AND RETURN OF THE WINCH)': 'B (GOING AND RETURN OF THE WINCH)',
     'B (HOLDING THE WINCH AT WORK PLACE)':
-      'B (HOLDING THE WINCH AT WORK PLACE)',
-    'D2 (BUCKET (GRAP))': 'D2 (BUCKET (GRAP))',
-    'D3 (MAGNET)': 'D3 (MAGNET)',
-    'D4 (ROMÖRK (TRAİLER))': 'D4 (ROMÖRK (TRAİLER))',
+    'B (HOLDING THE WINCH AT WORK PLACE)',
+    'D.2 (BUCKET (GRAP))': 'D2 (BUCKET (GRAP))',
+    'D.3 (MAGNET)': 'D3 (MAGNET)',
+    'D.4 (ROMÖRK (TRAİLER))': 'D4 (ROMÖRK (TRAİLER))',
+    'E.1 (FULL CONTAINER)': 'E.1 (FULL CONTAINER)',
+    'E.2 (EMPTY CONTAINER)': 'E.2 (EMPTY CONTAINER)',
     'F (REED BARGE)': 'F (REED BARGE)',
     'F (REED BARGE & ROMORKOR RENT)': 'F (REED BARGE & ROMORKOR RENT)',
     'G (PHÖNOMATİK)': 'G (PHÖNOMATİK)',
@@ -480,6 +494,7 @@ export const locale = {
     'Ship Registry': 'Ship Registry',
 
     //ship types
+    'Ship Type': 'Ship Type',
     RESEARCH: 'RESEARCH',
     SOLDIER: 'SOLDIER',
     'FISHING BOAT': 'FISHING BOAT',
@@ -567,13 +582,13 @@ export const locale = {
     'Source Port': 'Source Port',
 
     // list of accomadations
-    'In-port Iron': 'Inner Archorage Area',
+    'In-Port Iron': 'Inner Archorage Area',
     'Out of Port Iron': 'Outer Archorage Area',
-    Dock: 'Berth',
+    Dock: 'Dock',
     'Repair at the Dock': 'Repair at the Berth',
     // 'Shipyard':'Shipyard',
 
-    Free: 'Free Port',
+    Free: 'Free',
     Conventional: 'Conventional',
     Pilotage: 'Pilotage',
     Quantity: 'Quantity',
@@ -636,7 +651,18 @@ export const locale = {
     'BERTAGE FEE':'BERTHAGE', 
     'Trips':'Ship Transactions',
 
-
+    //////////////
+    'Coastal Safety Directorate (9148)':'Coastal Safety Directorate (9148)',
+    'Crane (9050)':'Crane (9050)',
+    'Other Revenues (9072)':'Other Revenues (9072)',
+    'Penalties (9084)':'Penalties (9084)',
+    'Special Crane (9195)':'Special Crane (9195)',
+    'Other Fees (9051)':'Other Fees (9051)',
+    'VAT (9138)':'VAT (9138)',
+    'Delay Raise (9083)':'Delay Raise (9083)',
+    'Port and Ship (9049)':'Port and Ship (9049)',
+    'Other (9444)':'Other (9444)',
+    'Other (9570)':'Other (9570)',
 
     // countries
     'Northern Cyprus (TRNC)': 'Northern Cyprus (TRNC)',
@@ -863,6 +889,7 @@ export const locale = {
     'Dollar Rate': 'Dollar Rate',
     'Open Crane Invoices': 'Open Crane Invoices',
     Invoices: 'Invoices',
+    'Update Currency': 'Update Currency',
     'Invoices Amount': 'Invoices Amount',
     'Invoice Paid Amount': 'Invoice Paid Amount',
     'Invoice Due Amount': 'Invoice Due Amount',

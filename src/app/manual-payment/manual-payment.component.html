@@ -77,6 +77,12 @@
           [options]="banksList"
           [(ngModel)]="selectedDropdownOption"
         >
+          <ng-template let-bank pTemplate="item">
+            {{ bank | translate }}
+          </ng-template>
+          <ng-template let-bank pTemplate="selectedItem">
+            {{ bank | translate }}
+          </ng-template>
         </p-dropdown>
         <p-dropdown
           (onChange)="dropdownChange()"
@@ -84,6 +90,12 @@
           [options]="portList"
           [(ngModel)]="selectedPortListOption"
         >
+          <ng-template let-port pTemplate="item">
+            {{ port | translate }}
+          </ng-template>
+          <ng-template let-port pTemplate="selectedItem">
+            {{ port | translate }}
+          </ng-template>
         </p-dropdown>
 
         <p-button
@@ -125,7 +137,7 @@
               </th>
 
               <th>
-                <div class="align-center">Options</div>
+                <div class="align-center">{{ translate.instant('Options') }}</div>
               </th>
             </tr>
           </thead>

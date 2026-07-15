@@ -14,7 +14,7 @@
 
       <div class="button-row">
         <p-button
-          label="Cash Closing"
+          [label]="translate.instant('Cash Closing')"
           icon="pi pi-file"
           class="p-button-sm cash-button"
           (click)="showTelerikReport('closing')"
@@ -22,7 +22,7 @@
       </div>
       <div class="button-row">
         <p-button
-          label="Vinc Report"
+          [label]="translate.instant('Vinc Report')"
           icon="pi pi-file"
           class="p-button-sm cash-button"
           (click)="showTelerikReport('vinc')"
