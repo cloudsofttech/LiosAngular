@@ -257,7 +257,7 @@
           <label>{{ "Quantity" | translate }}</label>
         </span>
       </div>
-      <div class="input-container">
+      <div class="input-container" *ngIf="isContainerGroup(selectedGroupName)">
         <span class="p-float-label">
           <input [(ngModel)]="categoryObj.weight" type="number" pInputText />
           <label>{{ "Weight" | translate }}</label>

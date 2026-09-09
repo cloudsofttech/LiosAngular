@@ -47,8 +47,9 @@ export class DepartureComponent implements OnInit {
 
   groupsArr: any[];
   categoriesArr: any[] = [];
+  selectedGroupName: string | null = null;
 
-  categoryObj: any = { categoryId: null, quantity: null };
+  categoryObj: any = { categoryId: null, quantity: null, weight: null };
 
   constructor(
     private dataService: DataService,
@@ -210,8 +211,13 @@ export class DepartureComponent implements OnInit {
   }
 
   groupSelectionChange(event) {
-    // console.log(event.value.id);
-    this.getCategories(event.value.id);
+    this.selectedGroupName = event.value?.name ?? null;
+    this.getCategories(event.value?.id);
+  }
+
+  isContainerGroup(groupName: string | null): boolean {
+    const normalized = (groupName ?? '').trim().toLowerCase();
+    return normalized.includes('container') || normalized.includes('konteyner');
   }
 
   getCategories(id) {
@@ -385,7 +391,7 @@ export class DepartureComponent implements OnInit {
         );
     }
 
-    this.categoryObj = { categoryId: null, quantity: null };
+    this.categoryObj = { categoryId: null, quantity: null, weight: null };
   }
 
   deleteProduct(product: any, index: any) {

@@ -68,6 +68,7 @@ export class ShipMovementsFormComponent implements OnInit {
               ),
               isFree: this.selectedRow.isFree,
               isPilotage: this.selectedRow.isPilotage,
+              defectiveEngine: this.selectedRow.defectiveEngine ?? false,
               pilotageId: this.captains.find(
                 (x) =>
                   x.firstName + ' ' + x.lastName ==
@@ -225,7 +226,12 @@ export class ShipMovementsFormComponent implements OnInit {
   clearSelection() {
     this.selectedRow = '';
     this.editMode = false;
-    this.form.reset();
+    this.initializeForm();
+    this.form.patchValue({
+      defectiveEngine: false,
+      isPilotage: false,
+      isFree: false,
+    });
   }
 
   // autocomplete functions

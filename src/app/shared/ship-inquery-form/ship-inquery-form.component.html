@@ -26,6 +26,8 @@
               formControlName="serviceId"
               placeholder=" "
               optionLabel="name"
+              appendTo="body"
+              [panelStyle]="{ zIndex: 99999 }"
               (onChange)="initializeOvertimeForm(true)"
             ></p-dropdown>
             <label>{{ "Service" | translate }}</label>
@@ -135,6 +137,9 @@
               formControlName="serviceId"
               placeholder=" "
               optionLabel="name"
+              appendTo="body"
+              [panelStyle]="{ zIndex: 99999 }"
+              [appendTo]="'body'"
               (onChange)="initializeBoatForm(true)"
             ></p-dropdown>
             <label>{{ "Service" | translate }}</label>
@@ -174,18 +179,17 @@
           }}</small>
         </div>
 
-        <div
-          class="input-container"
-          *ngIf="
+        <div class="input-container"
+            *ngIf="
             [
               'ÖZGÜR',
               'BAYRAK',
               'VATAN',
               'SÖNDÜREN 10',
-              'GEMİ KURTARMA'
+              'GEMİ KURTARMA',
+              'CENGİZ TOPEL'
             ].includes(boatForm.value?.serviceId?.name)
-          "
-        >
+          ">
           <span class="p-float-label">
             <input formControlName="charge" type="number" pInputText />
             <label>{{ "Charge" | translate }}</label>
@@ -197,21 +201,14 @@
 
         <div
           class="input-container"
-          *ngIf="
-            [
-              'ÖZGÜR',
-              'BAYRAK',
-              'VATAN',
-              'SÖNDÜREN 10',
-              'GEMİ KURTARMA'
-            ].includes(boatForm.value?.serviceId?.name)
-          "
         >
           <span class="p-float-label">
             <p-dropdown
               [options]="boatInqueryTypes"
               formControlName="type"
               placeholder=" "
+              appendTo="body"
+              [panelStyle]="{ zIndex: 99999 }"
             ></p-dropdown>
             <label>{{ "Type" | translate }}</label>
           </span>

@@ -153,6 +153,12 @@
           <label>{{ "Quantity" | translate }}</label>
         </span>
       </div>
+      <div class="input-container" *ngIf="isContainerGroup(selectedGroupName)">
+        <span class="p-float-label">
+          <input [(ngModel)]="categoryObj.weight" type="number" pInputText />
+          <label>{{ "Weight" | translate }}</label>
+        </span>
+      </div>
       <div class="input-container">
         <p-button
           [disabled]="!categoryObj.categoryId || !categoryObj.quantity"
@@ -172,6 +178,7 @@
         <tr>
           <th>Category Name</th>
           <th>Quantity</th>
+          <th>Weight</th>
           <th>Option</th>
         </tr>
       </ng-template>
@@ -185,6 +192,7 @@
             }}
           </td>
           <td>{{ product.quantity }}</td>
+          <td>{{ product.weight }}</td>
           <td>
             <i
               (click)="deleteProduct(product, rowIndex)"

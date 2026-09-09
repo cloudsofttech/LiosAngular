@@ -46,6 +46,7 @@ export class ArrivalComponent implements OnInit {
 
   groupsArr: any[];
   categoriesArr: any[] = [];
+  selectedGroupName: string | null = null;
 
   categoryObj: any = { categoryId: null, quantity: null, weight: null };
 
@@ -198,8 +199,13 @@ export class ArrivalComponent implements OnInit {
   }
 
   groupSelectionChange(event) {
-    // console.log(event.value.id);
-    this.getCategories(event.value.id);
+    this.selectedGroupName = event.value?.name ?? null;
+    this.getCategories(event.value?.id);
+  }
+
+  isContainerGroup(groupName: string | null): boolean {
+    const normalized = (groupName ?? '').trim().toLowerCase();
+    return normalized.includes('container') || normalized.includes('konteyner');
   }
 
   getCategories(id) {

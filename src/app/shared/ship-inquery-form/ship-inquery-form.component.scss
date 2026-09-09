@@ -1,0 +1,17 @@
+:host ::ng-deep .p-dropdown-panel,
+:host ::ng-deep .p-datepicker,
+:host ::ng-deep .p-overlaypanel {
+  z-index: 999999 !important;
+}
+
+:host ::ng-deep .p-dialog {
+  overflow: visible;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-panels {
+  overflow: visible;
+}
+
+:host ::ng-deep .p-datatable-wrapper {
+  overflow: visible;
+}
