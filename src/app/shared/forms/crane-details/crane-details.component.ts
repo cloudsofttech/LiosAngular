@@ -61,18 +61,25 @@ export class CraneDetailsComponent implements OnInit {
       .subscribe((value) => {
         this.crane = { ...value };
         console.log(this.crane);
-        for (let inq of this.crane.inquiry) {
-          for (let transaction of inq.transactions) {
-            if (transaction.start.length > 10) {
+        for (let inq of this.crane.inquiry || []) {
+          for (let transaction of inq.transactions || []) {
+            if (transaction.start?.length > 10) {
               transaction.start = new Date(
                 String(this.reverseString(transaction?.start.slice(0, -9)))
               );
             }
-            if (transaction.end.length > 10) {
+            if (transaction.end?.length > 10) {
               transaction.end = new Date(
                 String(this.reverseString(transaction?.end.slice(0, -9)))
               );
             }
+            transaction.transactionDetails = (
+              transaction.transactionDetails || []
+            ).map((detail) => ({
+              ...detail,
+              start: this.toDate(detail.start),
+              end: this.toDate(detail.end),
+            }));
           }
         }
       });
@@ -83,7 +90,38 @@ export class CraneDetailsComponent implements OnInit {
   }
 
   onRowEditInit(row: any) {
-    this.clonedRow = { ...row };
+    this.clonedRow = {
+      ...row,
+      transactionDetails: (row.transactionDetails || []).map((detail) => ({
+        ...detail,
+        start: this.toDate(detail.start),
+        end: this.toDate(detail.end),
+      })),
+    };
+  }
+
+  addTransactionDetail(transaction: any) {
+    transaction.transactionDetails = transaction.transactionDetails || [];
+    transaction.transactionDetails.push({
+      id: 0,
+      start: new Date(),
+      end: new Date(),
+    });
+  }
+
+  private toDate(value: Date | string): Date {
+    return value instanceof Date ? value : new Date(value);
+  }
+
+  private toLocalDateTimeString(value: Date | string): string {
+    const date = this.toDate(value);
+    const pad = (part: number, length = 2) => String(part).padStart(length, '0');
+
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
+      date.getDate()
+    )}T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(
+      date.getSeconds()
+    )}.${pad(date.getMilliseconds(), 3)}`;
   }
 
   onRowEditSave(row: any) {
@@ -92,12 +130,22 @@ export class CraneDetailsComponent implements OnInit {
         id: this.clonedRow.id,
         weight: row.weight,
         quantity: row.quantity,
-        start: row.start.toJSON(),
-        end: row.end.toJSON(),
+        start: this.toLocalDateTimeString(row.start),
+        end: this.toLocalDateTimeString(row.end),
       };
+      if (this.showTransactionDetails(row.serviceName)) {
+        obj['transactionDetails'] = (row.transactionDetails || []).map(
+          (detail) => ({
+            id: detail.id || 0,
+            start: this.toLocalDateTimeString(detail.start),
+            end: this.toLocalDateTimeString(detail.end),
+          })
+        );
+      }
 
       this.dataService.updateCrane2(obj).subscribe(
         (resp) => {
+          this.formService.triggerRefresh();
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
@@ -116,7 +164,12 @@ export class CraneDetailsComponent implements OnInit {
   }
 
   onRowEditCancel(row: any, index: number, i: number) {
-    this.crane.inquiry[i].transactions[index] = { ...this.clonedRow };
+    this.crane.inquiry[i].transactions[index] = {
+      ...this.clonedRow,
+      transactionDetails: (this.clonedRow.transactionDetails || []).map(
+        (detail) => ({ ...detail })
+      ),
+    };
 
     // this.products2[index] = this.clonedProducts[product.id];
     // delete this.clonedProducts[product.id];
@@ -128,8 +181,8 @@ export class CraneDetailsComponent implements OnInit {
         id: this.clonedRow.id,
         weight: row.weight,
         quantity: row.quantity,
-        start: row.start.toJSON(),
-        end: row.end.toJSON(),
+        start: this.toLocalDateTimeString(row.start),
+        end: this.toLocalDateTimeString(row.end),
         isDeleted: true,
       };
 
@@ -258,6 +311,15 @@ export class CraneDetailsComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  showTransactionDetails(serviceName: string): boolean {
+    const normalizedServiceName =
+      typeof serviceName === 'string' ? serviceName.trim() : '';
+    return (
+      normalizedServiceName.startsWith('A') ||
+      normalizedServiceName.startsWith('D.2')
+    );
   }
 
   reverseString(str) {

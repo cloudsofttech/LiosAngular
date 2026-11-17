@@ -49,7 +49,7 @@ export class DepartureComponent implements OnInit {
   categoriesArr: any[] = [];
   selectedGroupName: string | null = null;
 
-  categoryObj: any = { categoryId: null, quantity: null, weight: null };
+  categoryObj: any = { categoryId: null, quantity: 0, weight: 0 };
 
   constructor(
     private dataService: DataService,
@@ -370,6 +370,7 @@ export class DepartureComponent implements OnInit {
   }
 
   addProduct() {
+    this.categoryObj.weight = this.categoryObj.weight ?? 0;
     this.categoryObj.categoryId.categoryName = JSON.stringify(
       this.categoryObj?.categoryId?.name,
       null
@@ -391,7 +392,7 @@ export class DepartureComponent implements OnInit {
         );
     }
 
-    this.categoryObj = { categoryId: null, quantity: null, weight: null };
+    this.categoryObj = { categoryId: null, quantity: 0, weight: 0 };
   }
 
   deleteProduct(product: any, index: any) {

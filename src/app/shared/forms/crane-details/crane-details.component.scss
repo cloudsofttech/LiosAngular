@@ -1,3 +1,67 @@
 .font-400{
   font-weight: 400;
 }
+
+.transaction-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 300px;
+}
+
+.transaction-detail-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(125px, 1fr));
+  align-items: end;
+  gap: 0.55rem;
+  padding: 0.65rem;
+  border: 1px solid rgba(68, 72, 109, 0.12);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.transaction-detail-field,
+.transaction-detail-value {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.transaction-detail-field small,
+.transaction-detail-value small {
+  color: #686b82;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.transaction-detail-field .p-calendar {
+  width: 100%;
+}
+
+.transaction-detail-value > span {
+  color: #34364a;
+  white-space: nowrap;
+}
+
+.transaction-details-empty {
+  color: #777;
+  font-style: italic;
+  padding: 0.25rem 0;
+}
+
+@media screen and (max-width: 900px) {
+  .transaction-details-list {
+    min-width: 260px;
+  }
+
+  .transaction-detail-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .transaction-detail-row {
+    grid-template-columns: 1fr;
+  }
+}

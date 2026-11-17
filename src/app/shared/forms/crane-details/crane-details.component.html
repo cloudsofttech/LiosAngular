@@ -40,6 +40,7 @@
             </th>
             <th>Service Charge</th>
             <th>Charge</th>
+            <th>{{ "Transaction Details" | translate }}</th>
             <th style="width: 8rem" *ngIf="!crane.isPaid"></th>
           </tr>
         </ng-template>
@@ -187,6 +188,62 @@
                   {{ item.charge }}
                 </ng-template>
               </p-cellEditor>
+            </td>
+
+            <td>
+              <div class="transaction-details-list">
+                <div
+                  class="transaction-detail-row"
+                  *ngFor="let detail of item.transactionDetails || []; let detailIndex = index"
+                >
+                  <ng-container *ngIf="editing; else transactionDetailOutput">
+                    <span class="transaction-detail-field">
+                      <small>{{ "Start Time" | translate }}</small>
+                      <p-calendar
+                        [(ngModel)]="detail.start"
+                        [showIcon]="true"
+                        [showTime]="true"
+                        appendTo="body"
+                      ></p-calendar>
+                    </span>
+                    <span class="transaction-detail-field">
+                      <small>{{ "End Time" | translate }}</small>
+                      <p-calendar
+                        [(ngModel)]="detail.end"
+                        [showIcon]="true"
+                        [showTime]="true"
+                        appendTo="body"
+                      ></p-calendar>
+                    </span>
+                  </ng-container>
+                  <ng-template #transactionDetailOutput>
+                    <span class="transaction-detail-value">
+                      <small>{{ "Start Time" | translate }}</small>
+                      <span>{{ detail.start | date: "short" }}</span>
+                    </span>
+                    <span class="transaction-detail-value">
+                      <small>{{ "End Time" | translate }}</small>
+                      <span>{{ detail.end | date: "short" }}</span>
+                    </span>
+                  </ng-template>
+                </div>
+                <span
+                  *ngIf="!item.transactionDetails?.length"
+                  class="transaction-details-empty"
+                >
+                  {{ "No transaction details" | translate }}
+                </span>
+                <button
+                  *ngIf="editing && !crane.isPaid && showTransactionDetails(item.serviceName)"
+                  pButton
+                  pRipple
+                  type="button"
+                  icon="pi pi-plus"
+                  label="{{ 'Add' | translate }}"
+                  class="p-button-text p-button-sm"
+                  (click)="addTransactionDetail(item)"
+                ></button>
+              </div>
             </td>
 
             <td style="text-align: center" *ngIf="!crane.isPaid">

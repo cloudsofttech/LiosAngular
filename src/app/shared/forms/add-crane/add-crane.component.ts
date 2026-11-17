@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -69,6 +70,10 @@ export class AddCraneComponent implements OnInit {
 
   ngOnInit() {}
 
+  get transactionDetails(): FormArray {
+    return this.form.get('transactionDetails') as FormArray;
+  }
+
   loadSubscriptions() {
     // this.objectSubscriber$ = this.formService
     //   .getFormObject()
@@ -117,6 +122,15 @@ export class AddCraneComponent implements OnInit {
       return;
     }
     if (obj.craneAgencyId?.id) obj.craneAgencyId = obj.craneAgencyId.id;
+    obj.start = this.toLocalDateTimeString(obj.start);
+    obj.end = this.toLocalDateTimeString(obj.end);
+    obj.transactionDetails = this.showTransactionDetails()
+      ? obj.transactionDetails.map((detail) => ({
+          id: 0,
+          start: this.toLocalDateTimeString(detail.start),
+          end: this.toLocalDateTimeString(detail.end),
+        }))
+      : [];
 
     this.dataService.addNewCrane(obj).subscribe((response) => {
       this.formService.triggerRefresh();
@@ -139,7 +153,36 @@ export class AddCraneComponent implements OnInit {
       quantity: new FormControl(0, []),
       start: new FormControl(new Date(), []),
       end: new FormControl(new Date(), []),
+      transactionDetails: this.fb.array([this.createTransactionDetail()]),
     });
+  }
+
+  addTransactionDetail() {
+    this.transactionDetails.push(this.createTransactionDetail());
+  }
+
+  removeTransactionDetail(index: number) {
+    if (this.transactionDetails.length > 1) {
+      this.transactionDetails.removeAt(index);
+    }
+  }
+
+  private createTransactionDetail(): FormGroup {
+    return this.fb.group({
+      start: new FormControl(new Date(), [Validators.required]),
+      end: new FormControl(new Date(), [Validators.required]),
+    });
+  }
+
+  private toLocalDateTimeString(value: Date | string): string {
+    const date = value instanceof Date ? value : new Date(value);
+    const pad = (part: number, length = 2) => String(part).padStart(length, '0');
+
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
+      date.getDate()
+    )}T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(
+      date.getSeconds()
+    )}.${pad(date.getMilliseconds(), 3)}`;
   }
 
   checkValidity(formControl: string) {
@@ -331,5 +374,15 @@ export class AddCraneComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  showTransactionDetails(): boolean {
+    const serviceName = this.form?.get('serviceId')?.value?.name;
+    const normalizedServiceName =
+      typeof serviceName === 'string' ? serviceName.trim() : '';
+    return (
+      normalizedServiceName.startsWith('A') ||
+      normalizedServiceName.startsWith('D.2')
+    );
   }
 }
